@@ -8,109 +8,109 @@ const brands = [
   { 
     name: "BMW", 
     slug: "bmw",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/200px-BMW.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png",
     hasLogo: true
   },
   { 
     name: "Mercedes", 
     slug: "mercedes",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/200px-Mercedes-Logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png",
     hasLogo: true
   },
   { 
     name: "Audi", 
     slug: "audi",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/audi.png",
     hasLogo: true
   },
   { 
     name: "Tesla", 
     slug: "tesla",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/200px-Tesla_Motors.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/tesla.png",
     hasLogo: true
   },
   { 
     name: "Porsche", 
     slug: "porsche",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Porsche_logo.svg/200px-Porsche_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/porsche.png",
     hasLogo: true
   },
   { 
     name: "Lexus", 
     slug: "lexus",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lexus_logo.svg/200px-Lexus_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/lexus.png",
     hasLogo: true
   },
   { 
     name: "Range Rover", 
     slug: "range-rover",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Land_Rover_logo.svg/200px-Land_Rover_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/land-rover.png",
     hasLogo: true
   },
   { 
     name: "Bentley", 
     slug: "bentley",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Bentley_logo.svg/200px-Bentley_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bentley.png",
     hasLogo: true
   },
   { 
     name: "Ferrari", 
     slug: "ferrari",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Scuderia_Ferrari_Logo.svg/200px-Scuderia_Ferrari_Logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/ferrari.png",
     hasLogo: true
   },
   { 
     name: "Lamborghini", 
     slug: "lamborghini",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Lamborghini_Logo.svg/200px-Lamborghini_Logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/lamborghini.png",
     hasLogo: true
   },
   { 
     name: "Rolls-Royce", 
     slug: "rolls-royce",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Rolls-Royce_logo.svg/200px-Rolls-Royce_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/rolls-royce.png",
     hasLogo: true
   },
   { 
     name: "Maserati", 
     slug: "maserati",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Maserati_logo.svg/200px-Maserati_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/maserati.png",
     hasLogo: true
   },
   { 
     name: "Jaguar", 
     slug: "jaguar",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaguar_logo.svg/200px-Jaguar_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jaguar.png",
     hasLogo: true
   },
   { 
     name: "Cadillac", 
     slug: "cadillac",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Cadillac_logo.svg/200px-Cadillac_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/cadillac.png",
     hasLogo: true
   },
   { 
     name: "Jeep", 
     slug: "jeep",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Jeep_logo.svg/200px-Jeep_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/jeep.png",
     hasLogo: true
   },
   { 
     name: "Toyota", 
     slug: "toyota",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Toyota.svg/200px-Toyota.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png",
     hasLogo: true
   },
   { 
     name: "Nissan", 
     slug: "nissan",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nissan_logo.svg/200px-Nissan_logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png",
     hasLogo: true
   },
   { 
     name: "Chevrolet", 
     slug: "chevrolet",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chevrolet-logo.svg/200px-Chevrolet-logo.svg.png",
+    logo: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/chevrolet.png",
     hasLogo: true
   },
 ];

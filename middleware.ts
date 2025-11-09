@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { auth } from "@/lib/auth";
 
 export async function middleware(request: NextRequest) {
-  const session = await auth.api.getSession({ headers: await headers() });
-  
-  // Redirect to login if not authenticated
-  if (!session) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
-  
+  // For demo version: no authentication required
+  // Admin pages will show placeholder message
   return NextResponse.next();
 }
 
