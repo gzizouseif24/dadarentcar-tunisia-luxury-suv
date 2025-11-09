@@ -51,30 +51,41 @@ export const CarCard = ({
     <div
       className="border border-gray-200 bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
-      {/* Image Container - Slightly taller */}
-      <div className="relative overflow-hidden aspect-[4/3]">
-        <Image
-          src={image}
-          alt={`${brand} ${name}`}
-          width={800}
-          height={600}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          quality={80}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {/* Image Container - Clickable to detail page */}
+      <Link href={`/vehicles/${id}`} className="block">
+        <div className="relative overflow-hidden aspect-[4/3]">
+          <Image
+            src={image}
+            alt={`${brand} ${name}`}
+            width={800}
+            height={600}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            quality={80}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Discount Badge - Small banner */}
+          {badge && (
+            <div className="absolute top-3 right-3 bg-red-500 px-2 py-1 shadow-md">
+              <span className="text-[10px] font-bold uppercase tracking-wide text-white">
+                {badge}
+              </span>
+            </div>
+          )}
+        </div>
+      </Link>
 
       {/* Content - Compact with smaller text */}
       <div className="p-3 space-y-1.5">
-        {/* Category & Title Combined */}
-        <div>
+        {/* Category & Title Combined - Clickable */}
+        <Link href={`/vehicles/${id}`} className="block">
           <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
             {category}
           </p>
-          <h3 className="text-sm font-bold text-gray-900 leading-tight">
+          <h3 className="text-sm font-bold text-gray-900 leading-tight hover:text-[#0066FF] transition-colors">
             {brand} {name}
           </h3>
-        </div>
+        </Link>
         
         {/* Price - Inline with Features */}
         <div className="flex items-center justify-between border-t border-gray-200 pt-1.5">

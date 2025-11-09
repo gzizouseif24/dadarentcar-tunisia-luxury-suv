@@ -32,32 +32,86 @@ const brands = [
   { 
     name: "Porsche", 
     slug: "porsche",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Porsche_logo.svg/200px-Porsche_logo.svg.png",
+    hasLogo: true
   },
   { 
     name: "Lexus", 
     slug: "lexus",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lexus_logo.svg/200px-Lexus_logo.svg.png",
+    hasLogo: true
   },
   { 
     name: "Range Rover", 
     slug: "range-rover",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Land_Rover_logo.svg/200px-Land_Rover_logo.svg.png",
+    hasLogo: true
   },
   { 
     name: "Bentley", 
     slug: "bentley",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Bentley_logo.svg/200px-Bentley_logo.svg.png",
+    hasLogo: true
   },
   { 
     name: "Ferrari", 
     slug: "ferrari",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Scuderia_Ferrari_Logo.svg/200px-Scuderia_Ferrari_Logo.svg.png",
+    hasLogo: true
   },
   { 
     name: "Lamborghini", 
     slug: "lamborghini",
-    hasLogo: false
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Lamborghini_Logo.svg/200px-Lamborghini_Logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Rolls-Royce", 
+    slug: "rolls-royce",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Rolls-Royce_logo.svg/200px-Rolls-Royce_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Maserati", 
+    slug: "maserati",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Maserati_logo.svg/200px-Maserati_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Jaguar", 
+    slug: "jaguar",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaguar_logo.svg/200px-Jaguar_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Cadillac", 
+    slug: "cadillac",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Cadillac_logo.svg/200px-Cadillac_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Jeep", 
+    slug: "jeep",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Jeep_logo.svg/200px-Jeep_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Toyota", 
+    slug: "toyota",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Toyota.svg/200px-Toyota.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Nissan", 
+    slug: "nissan",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Nissan_logo.svg/200px-Nissan_logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Chevrolet", 
+    slug: "chevrolet",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chevrolet-logo.svg/200px-Chevrolet-logo.svg.png",
+    hasLogo: true
   },
 ];
 

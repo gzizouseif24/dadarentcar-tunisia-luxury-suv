@@ -8,7 +8,6 @@ const BrandFilter = dynamic(() => import("@/components/brand-filter").then(mod =
 const FeaturedCars = dynamic(() => import("@/components/featured-cars").then(mod => ({ default: mod.FeaturedCars })), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 });
-const CategoryShowcase = dynamic(() => import("@/components/category-showcase").then(mod => ({ default: mod.CategoryShowcase })));
 const FAQSection = dynamic(() => import("@/components/faq-section").then(mod => ({ default: mod.FAQSection })));
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
       <HeroSection />
       <BrandFilter />
       <FeaturedCars />
-      <CategoryShowcase />
       <FAQSection />
     </div>
   );

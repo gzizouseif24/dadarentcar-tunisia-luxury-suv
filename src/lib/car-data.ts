@@ -1,11 +1,19 @@
-"use client";
+export interface Car {
+  id: string;
+  name: string;
+  brand: string;
+  category: string;
+  image: string;
+  dailyPrice: number;
+  monthlyPrice: number;
+  gearbox: "Automatic" | "Manual";
+  fuelType: "Diesel" | "Petrol" | "Hybrid" | "Electric";
+  seats: number;
+  status: "Available" | "Reserved" | "In Preparation";
+  badge?: string;
+}
 
-import { CarCard } from "./car-card";
-import { ArrowRight, Zap } from "lucide-react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-
-const featuredCars = [
+export const cars: Car[] = [
   {
     id: "1",
     name: "Patrol",
@@ -14,10 +22,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-75237027-20251107205230.jpg",
     dailyPrice: 250,
     monthlyPrice: 6000,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
     badge: "20% Remise",
   },
   {
@@ -28,10 +36,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-21f20aca-20251107205233.jpg",
     dailyPrice: 350,
     monthlyPrice: 8500,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "3",
@@ -41,10 +49,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1e2f42f6-20251107205231.jpg",
     dailyPrice: 400,
     monthlyPrice: 9500,
-    gearbox: "Automatic" as const,
-    fuelType: "Hybrid" as const,
+    gearbox: "Automatic",
+    fuelType: "Hybrid",
     seats: 5,
-    status: "Reserved" as const,
+    status: "Reserved",
     badge: "Nouvelle Arrivée",
   },
   {
@@ -55,10 +63,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1b081630-20251107205232.jpg",
     dailyPrice: 380,
     monthlyPrice: 9000,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "5",
@@ -68,10 +76,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1bd2fa44-20251107205234.jpg",
     dailyPrice: 280,
     monthlyPrice: 6800,
-    gearbox: "Automatic" as const,
-    fuelType: "Petrol" as const,
+    gearbox: "Automatic",
+    fuelType: "Petrol",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "6",
@@ -81,10 +89,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-6cd8deae-20251107205255.jpg",
     dailyPrice: 320,
     monthlyPrice: 7500,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "7",
@@ -94,10 +102,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-75237027-20251107205230.jpg",
     dailyPrice: 420,
     monthlyPrice: 10000,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "8",
@@ -107,10 +115,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-21f20aca-20251107205233.jpg",
     dailyPrice: 550,
     monthlyPrice: 13000,
-    gearbox: "Automatic" as const,
-    fuelType: "Hybrid" as const,
+    gearbox: "Automatic",
+    fuelType: "Hybrid",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "9",
@@ -120,10 +128,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1e2f42f6-20251107205231.jpg",
     dailyPrice: 450,
     monthlyPrice: 10500,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "10",
@@ -133,10 +141,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1b081630-20251107205232.jpg",
     dailyPrice: 500,
     monthlyPrice: 12000,
-    gearbox: "Automatic" as const,
-    fuelType: "Petrol" as const,
+    gearbox: "Automatic",
+    fuelType: "Petrol",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "11",
@@ -146,10 +154,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1bd2fa44-20251107205234.jpg",
     dailyPrice: 300,
     monthlyPrice: 7200,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "12",
@@ -159,10 +167,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-6cd8deae-20251107205255.jpg",
     dailyPrice: 290,
     monthlyPrice: 6900,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "13",
@@ -172,10 +180,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-75237027-20251107205230.jpg",
     dailyPrice: 480,
     monthlyPrice: 11500,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "14",
@@ -185,10 +193,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-21f20aca-20251107205233.jpg",
     dailyPrice: 520,
     monthlyPrice: 12500,
-    gearbox: "Automatic" as const,
-    fuelType: "Hybrid" as const,
+    gearbox: "Automatic",
+    fuelType: "Hybrid",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "15",
@@ -198,10 +206,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1e2f42f6-20251107205231.jpg",
     dailyPrice: 460,
     monthlyPrice: 11000,
-    gearbox: "Automatic" as const,
-    fuelType: "Diesel" as const,
+    gearbox: "Automatic",
+    fuelType: "Diesel",
     seats: 5,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "16",
@@ -211,10 +219,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1b081630-20251107205232.jpg",
     dailyPrice: 490,
     monthlyPrice: 11800,
-    gearbox: "Automatic" as const,
-    fuelType: "Petrol" as const,
+    gearbox: "Automatic",
+    fuelType: "Petrol",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "17",
@@ -224,10 +232,10 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1bd2fa44-20251107205234.jpg",
     dailyPrice: 340,
     monthlyPrice: 8200,
-    gearbox: "Automatic" as const,
-    fuelType: "Petrol" as const,
+    gearbox: "Automatic",
+    fuelType: "Petrol",
     seats: 7,
-    status: "Available" as const,
+    status: "Available",
   },
   {
     id: "18",
@@ -237,36 +245,19 @@ const featuredCars = [
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-6cd8deae-20251107205255.jpg",
     dailyPrice: 310,
     monthlyPrice: 7400,
-    gearbox: "Automatic" as const,
-    fuelType: "Petrol" as const,
+    gearbox: "Automatic",
+    fuelType: "Petrol",
     seats: 8,
-    status: "Available" as const,
+    status: "Available",
   },
 ];
 
-export const FeaturedCars = () => {
-  return (
-    <section className="relative bg-white text-black py-20 overflow-hidden">
+export function getCarById(id: string): Car | undefined {
+  return cars.find(car => car.id === id);
+}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {featuredCars.map((car) => (
-            <CarCard key={car.id} {...car} />
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="text-center">
-          <Link
-            href="/vehicles"
-            className="inline-flex items-center gap-3 bg-black text-white px-12 py-4 font-bold text-lg uppercase hover:bg-gray-800 transition-colors"
-          >
-            VOIR TOUS LES VÉHICULES
-            <ArrowRight className="w-6 h-6" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
+export function getSimilarCars(currentCarId: string, category: string, limit: number = 4): Car[] {
+  return cars
+    .filter(car => car.category === category && car.id !== currentCarId)
+    .slice(0, limit);
+}

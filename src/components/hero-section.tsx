@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ChevronLeft, ChevronRight, Phone } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -129,21 +129,14 @@ export const HeroSection = () => {
                     {currentSlideData.description}
                   </p>
 
-                  {/* CTA Buttons - Sharp & Bold */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  {/* CTA Button */}
+                  <div className="pt-4">
                     <Link
                       href="/vehicules"
                       className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-white text-white hover:text-black border-4 border-black px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1"
                     >
                       VOIR NOS VÉHICULES
                       <ArrowRight className="w-5 h-5" />
-                    </Link>
-                    <Link
-                      href="tel:+21612345678"
-                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-yellow-400 text-black border-4 border-black px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1"
-                    >
-                      <Phone className="w-5 h-5" />
-                      APPELEZ MAINTENANT
                     </Link>
                   </div>
                 </motion.div>
