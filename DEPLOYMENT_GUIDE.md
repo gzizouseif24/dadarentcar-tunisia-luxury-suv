@@ -15,8 +15,8 @@ Before deploying, let's make sure everything is ready:
 - [x] Car detail pages working
 - [x] Images loading
 - [x] Navigation working
-- [ ] Build test locally
-- [ ] Push to GitHub
+- [x] Build test locally
+- [x] Push to GitHub
 - [ ] Deploy to Vercel
 
 ---
