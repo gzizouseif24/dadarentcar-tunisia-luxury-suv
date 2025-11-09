@@ -33,9 +33,9 @@ export default function ContactPage() {
       {/* Header */}
       <div className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h1>
           <p className="text-xl text-gray-300">
-            We're here to help. Reach out to us anytime!
+            Nous sommes là pour vous aider. Contactez-nous à tout moment !
           </p>
         </div>
       </div>
@@ -50,9 +50,9 @@ export default function ContactPage() {
                 <div className="bg-yellow/10 p-3 rounded-full">
                   <Phone className="w-6 h-6 text-yellow" />
                 </div>
-                <h3 className="text-xl font-bold text-black">Phone</h3>
+                <h3 className="text-xl font-bold text-black">Téléphone</h3>
               </div>
-              <p className="text-gray-700 mb-2">Call us directly</p>
+              <p className="text-gray-700 mb-2">Appelez-nous directement</p>
               <a href="tel:+21612345678" className="text-yellow font-semibold hover:underline">
                 +216 12 345 678
               </a>
@@ -66,14 +66,14 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-black">WhatsApp</h3>
               </div>
-              <p className="text-gray-700 mb-2">Chat with us 24/7</p>
+              <p className="text-gray-700 mb-2">Discutez avec nous 24h/24 et 7j/7</p>
               <a 
                 href="https://wa.me/21612345678" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-500 font-semibold hover:underline"
               >
-                Start Chat
+                Démarrer le Chat
               </a>
             </div>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-black">Email</h3>
               </div>
-              <p className="text-gray-700 mb-2">Send us an email</p>
+              <p className="text-gray-700 mb-2">Envoyez-nous un email</p>
               <a href="mailto:info@dadarentcar.tn" className="text-blue-500 font-semibold hover:underline">
                 info@dadarentcar.tn
               </a>
@@ -97,9 +97,9 @@ export default function ContactPage() {
                 <div className="bg-red-100 p-3 rounded-full">
                   <MapPin className="w-6 h-6 text-red-500" />
                 </div>
-                <h3 className="text-xl font-bold text-black">Location</h3>
+                <h3 className="text-xl font-bold text-black">Localisation</h3>
               </div>
-              <p className="text-gray-700 mb-2">Visit our office</p>
+              <p className="text-gray-700 mb-2">Visitez notre bureau</p>
               <p className="text-black font-semibold">
                 Avenue Habib Bourguiba<br />
                 Tunis, Tunisia
@@ -112,20 +112,20 @@ export default function ContactPage() {
                 <div className="bg-purple-100 p-3 rounded-full">
                   <Clock className="w-6 h-6 text-purple-500" />
                 </div>
-                <h3 className="text-xl font-bold text-black">Working Hours</h3>
+                <h3 className="text-xl font-bold text-black">Horaires d'Ouverture</h3>
               </div>
               <div className="space-y-2 text-gray-700">
                 <div className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span className="font-semibold">8:00 AM - 8:00 PM</span>
+                  <span>Lundi - Vendredi:</span>
+                  <span className="font-semibold">8h00 - 20h00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Saturday:</span>
-                  <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                  <span>Samedi:</span>
+                  <span className="font-semibold">9h00 - 18h00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday:</span>
-                  <span className="font-semibold">10:00 AM - 4:00 PM</span>
+                  <span>Dimanche:</span>
+                  <span className="font-semibold">10h00 - 16h00</span>
                 </div>
               </div>
             </div>
@@ -134,14 +134,14 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl shadow-md p-8">
-              <h2 className="text-3xl font-bold text-black mb-6">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-black mb-6">Envoyez-nous un Message</h2>
               
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                   <div className="text-green-500 text-5xl mb-4">✓</div>
-                  <h3 className="text-2xl font-bold text-black mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-black mb-2">Message Envoyé !</h3>
                   <p className="text-gray-700">
-                    Thank you for contacting us. We'll get back to you within 24 hours.
+                    Merci de nous avoir contactés. Nous vous répondrons dans les 24 heures.
                   </p>
                 </div>
               ) : (
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-black mb-2">
-                        Full Name *
+                        Nom Complet *
                       </label>
                       <input
                         type="text"
@@ -157,14 +157,14 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="John Doe"
+                        placeholder="Jean Dupont"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow"
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-semibold text-black mb-2">
-                        Email Address *
+                        Adresse Email *
                       </label>
                       <input
                         type="email"
@@ -181,7 +181,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-black mb-2">
-                        Phone Number *
+                        Numéro de Téléphone *
                       </label>
                       <input
                         type="tel"
@@ -196,7 +196,7 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-sm font-semibold text-black mb-2">
-                        Subject *
+                        Sujet *
                       </label>
                       <select
                         name="subject"
@@ -205,12 +205,12 @@ export default function ContactPage() {
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow"
                       >
-                        <option value="">Select a subject...</option>
-                        <option value="booking">New Booking</option>
-                        <option value="inquiry">General Inquiry</option>
-                        <option value="support">Customer Support</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="complaint">Complaint</option>
+                        <option value="">Sélectionnez un sujet...</option>
+                        <option value="booking">Nouvelle Réservation</option>
+                        <option value="inquiry">Demande Générale</option>
+                        <option value="support">Support Client</option>
+                        <option value="feedback">Commentaire</option>
+                        <option value="complaint">Réclamation</option>
                       </select>
                     </div>
                   </div>
@@ -225,7 +225,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      placeholder="Tell us how we can help you..."
+                      placeholder="Dites-nous comment nous pouvons vous aider..."
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow resize-none"
                     />
                   </div>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                     className="w-full flex items-center justify-center gap-2 bg-yellow text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow/90 transition-colors"
                   >
                     <Send className="w-5 h-5" />
-                    Send Message
+                    Envoyer le Message
                   </button>
                 </form>
               )}

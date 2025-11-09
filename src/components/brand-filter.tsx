@@ -1,91 +1,137 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const brands = [
-  { name: "INFINITI", slug: "infiniti", icon: "∞", cars: "2 Cars" },
-  { name: "RANGE ROVER", slug: "range-rover", icon: "🦁", cars: "28 Cars" },
-  { name: "LAMBORGHINI", slug: "lamborghini", icon: "🏎️", cars: "23 Cars" },
-  { name: "FERRARI", slug: "ferrari", icon: "🐴", cars: "8 Cars" },
-  { name: "ROLLS ROYCE", slug: "rolls-royce", icon: "👑", cars: "13 Cars" },
-  { name: "PORSCHE", slug: "porsche", icon: "🦅", cars: "7 Cars" },
-  { name: "BENTLEY", slug: "bentley", icon: "🅱️", cars: "7 Cars" },
-  { name: "CADILLAC", slug: "cadillac", icon: "💎", cars: "2 Cars" },
-  { name: "MCLAREN", slug: "mclaren", icon: "🏁", cars: "3 Cars" },
-  { name: "CORVETTE", slug: "corvette", icon: "⚡", cars: "5 Cars" },
-  { name: "CHRYSLER", slug: "chrysler", icon: "⭐", cars: "4 Cars" },
+  { 
+    name: "BMW", 
+    slug: "bmw",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/200px-BMW.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Mercedes", 
+    slug: "mercedes",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/200px-Mercedes-Logo.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Audi", 
+    slug: "audi",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Tesla", 
+    slug: "tesla",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/200px-Tesla_Motors.svg.png",
+    hasLogo: true
+  },
+  { 
+    name: "Porsche", 
+    slug: "porsche",
+    hasLogo: false
+  },
+  { 
+    name: "Lexus", 
+    slug: "lexus",
+    hasLogo: false
+  },
+  { 
+    name: "Range Rover", 
+    slug: "range-rover",
+    hasLogo: false
+  },
+  { 
+    name: "Bentley", 
+    slug: "bentley",
+    hasLogo: false
+  },
+  { 
+    name: "Ferrari", 
+    slug: "ferrari",
+    hasLogo: false
+  },
+  { 
+    name: "Lamborghini", 
+    slug: "lamborghini",
+    hasLogo: false
+  },
 ];
 
 export const BrandFilter = () => {
-  const [selectedBrand, setSelectedBrand] = useState("");
+  // Duplicate brands multiple times for truly infinite scroll
+  const duplicatedBrands = [...brands, ...brands, ...brands, ...brands];
 
   return (
-    <section className="bg-black text-white py-16 relative overflow-hidden">
-      {/* Decorative brush strokes */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
+    <section className="bg-gradient-to-b from-white via-[#00B8D4]/5 to-white py-8 relative overflow-hidden">
+
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-6xl font-black text-center mb-12"
-        >
-          <span className="text-yellow">PICK A CAR FROM</span> TOP BRANDS
-        </motion.h2>
+      {/* Full Width Carousel */}
+      <div className="relative w-full">
+        {/* Gradient Overlays for fade effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
         
-        {/* Brands Carousel */}
-        <div className="relative">
-          {/* Left Arrow */}
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-yellow text-black p-3 rounded-full hover:bg-yellow/90 transition-all shadow-lg">
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          {/* Brands Grid */}
-          <div className="overflow-hidden px-12">
-            <div className="flex gap-6 justify-center flex-wrap">
-              {brands.map((brand, index) => (
+        {/* Scrolling Container */}
+        <div className="overflow-hidden">
+          <motion.div
+            className="flex gap-20 items-center py-8"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear",
+              },
+            }}
+          >
+            {duplicatedBrands.map((brand, index) => (
+              <Link
+                key={`${brand.slug}-${index}`}
+                href={`/vehicles?brand=${brand.slug}`}
+                className="flex-shrink-0 group"
+              >
                 <motion.div
-                  key={brand.slug}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="relative w-40 h-40 flex items-center justify-center transition-all duration-300"
                 >
-                  <Link
-                    href={`/vehicles?brand=${brand.slug}`}
-                    onClick={() => setSelectedBrand(brand.slug)}
-                    className={`flex flex-col items-center gap-3 p-6 rounded-xl transition-all min-w-[140px] ${
-                      selectedBrand === brand.slug
-                        ? "bg-yellow text-black"
-                        : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
-                    }`}
-                  >
-                    {/* Brand Icon/Logo placeholder */}
-                    <div className="text-5xl">{brand.icon}</div>
-                    <div className="text-center">
-                      <div className="font-black text-sm uppercase tracking-wider">{brand.name}</div>
-                      <div className="text-xs opacity-70 mt-1">{brand.cars}</div>
+                  {brand.hasLogo ? (
+                    <div className="w-full h-full flex items-center justify-center p-4">
+                      <Image
+                        src={brand.logo!}
+                        alt={brand.name}
+                        width={brand.slug === "tesla" ? 140 : 160}
+                        height={brand.slug === "tesla" ? 140 : 160}
+                        className="object-contain filter drop-shadow-lg"
+                        style={{ 
+                          maxWidth: brand.slug === "tesla" ? "140px" : "160px",
+                          maxHeight: brand.slug === "tesla" ? "140px" : "160px"
+                        }}
+                        unoptimized
+                      />
                     </div>
-                  </Link>
+                  ) : (
+                    <div className="w-36 h-36 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-200 flex items-center justify-center">
+                      <span className="text-blue-600 font-black text-2xl">
+                        {brand.name.substring(0, 2).toUpperCase()}
+                      </span>
+                    </div>
+                  )}
                 </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-yellow text-black p-3 rounded-full hover:bg-yellow/90 transition-all shadow-lg">
-            <ChevronRight className="w-6 h-6" />
-          </button>
+              </Link>
+            ))}
+          </motion.div>
         </div>
       </div>
+
+
     </section>
   );
 };

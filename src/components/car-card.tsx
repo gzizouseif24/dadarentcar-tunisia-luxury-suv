@@ -1,8 +1,8 @@
 "use client";
 
-import { MessageCircle, Phone, Mail, Calendar, Share2, Clock } from "lucide-react";
+import { MessageCircle, Phone, Calendar, Share2, Settings, Fuel, Users } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface CarCardProps {
   id: string;
@@ -34,168 +34,114 @@ export const CarCard = ({
   badge,
 }: CarCardProps) => {
   const whatsappMessage = encodeURIComponent(
-    `Hi! I'm interested in renting the ${brand} ${name}. Can you provide more details?`
+    `Bonjour ! Je suis intéressé(e) par la location de la ${brand} ${name}. Pouvez-vous me fournir plus de détails ?`
   );
 
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
         title: `${brand} ${name}`,
-        text: `Check out this ${brand} ${name} at DadaRentCar Tunisia!`,
+        text: `Découvrez cette ${brand} ${name} chez DadaRentCar Tunisie !`,
         url: window.location.href,
       });
     }
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ y: -8 }}
-      className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group"
+    <div
+      className="border border-gray-200 bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
-      {/* Image */}
-      <div className="relative h-56 bg-black overflow-hidden">
-        <motion.img
+      {/* Image Container - Slightly taller */}
+      <div className="relative overflow-hidden aspect-[4/3]">
+        <Image
           src={image}
           alt={`${brand} ${name}`}
+          width={800}
+          height={600}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          quality={80}
           className="w-full h-full object-cover"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
         />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-        {/* Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold ${
-            status === "Available" 
-              ? "bg-yellow text-black" 
-              : status === "Reserved"
-              ? "bg-white text-black"
-              : "bg-black/70 text-white border border-white/20"
-          }`}
-        >
-          {status}
-        </motion.div>
-
-        {/* Promotion Badge */}
-        {badge && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="absolute top-4 right-4 bg-yellow text-black px-3 py-1.5 rounded-full text-xs font-bold"
-          >
-            {badge}
-          </motion.div>
-        )}
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-        {/* Category Tag */}
-        <div className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 mb-3">
-          <span className="px-2 py-1 bg-gray-50 rounded">{category}</span>
+      {/* Content - Compact with smaller text */}
+      <div className="p-3 space-y-1.5">
+        {/* Category & Title Combined */}
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+            {category}
+          </p>
+          <h3 className="text-sm font-bold text-gray-900 leading-tight">
+            {brand} {name}
+          </h3>
         </div>
-
-        {/* Car Name */}
-        <h3 className="text-2xl font-bold text-black mb-1">{brand}</h3>
-        <p className="text-lg text-gray-600 mb-4">{name}</p>
-
-        {/* Specs */}
-        <div className="flex items-center gap-4 mb-6 text-sm text-gray-600 pb-6 border-b border-gray-100">
-          <div className="flex items-center gap-1.5">
-            <span className="text-base">⚙️</span>
-            <span>{gearbox}</span>
+        
+        {/* Price - Inline with Features */}
+        <div className="flex items-center justify-between border-t border-gray-200 pt-1.5">
+          <div className="flex items-baseline gap-1">
+            <span className="text-xl font-black text-[#0066FF]">{dailyPrice}</span>
+            <span className="text-[10px] font-bold text-gray-700">DT/J</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-base">⛽</span>
-            <span>{fuelType}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-base">👥</span>
-            <span>{seats}</span>
-          </div>
-        </div>
-
-        {/* Pricing */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <div className="text-xs text-gray-500 mb-1">Daily</div>
-            <div className="text-2xl font-bold text-yellow">{dailyPrice} DT</div>
-          </div>
-          <div className="text-right">
-            <div className="text-xs text-gray-500 mb-1">Monthly</div>
-            <div className="text-2xl font-bold text-yellow">{monthlyPrice} DT</div>
+          
+          {/* Features - Inline */}
+          <div className="flex gap-2">
+            <div className="flex items-center gap-0.5">
+              <Settings className="w-2.5 h-2.5 text-gray-600" />
+              <span className="text-[10px] font-semibold text-gray-600">{gearbox.slice(0, 4)}</span>
+            </div>
+            <div className="flex items-center gap-0.5">
+              <Users className="w-2.5 h-2.5 text-gray-600" />
+              <span className="text-[10px] font-semibold text-gray-600">{seats}</span>
+            </div>
           </div>
         </div>
-
-        {/* Primary Actions */}
-        <div className="grid grid-cols-2 gap-3 mb-3">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href={`/booking?car=${id}`}
-              className="flex items-center justify-center gap-2 bg-black text-white px-4 py-3 rounded-lg text-sm font-bold hover:bg-gray-900 transition-all"
-            >
-              Reserve Now
-            </Link>
-          </motion.div>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        
+        {/* CTA Buttons - Compact */}
+        <div className="grid grid-cols-2 gap-1.5">
+          <Link
+            href={`/booking?car=${id}`}
+            prefetch={true}
+            className="bg-black text-white hover:bg-gray-800 py-1.5 font-bold uppercase text-[10px] text-center transition-colors"
+          >
+            RÉSERVER
+          </Link>
+          <a
             href={`https://wa.me/21612345678?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-yellow text-black px-4 py-3 rounded-lg text-sm font-bold hover:bg-yellow/90 transition-all"
+            className="bg-green-500 text-white hover:bg-green-600 py-1.5 font-bold uppercase text-[10px] text-center transition-colors"
           >
-            <MessageCircle className="w-4 h-4" />
-            WhatsApp
-          </motion.a>
+            WHATSAPP
+          </a>
         </div>
 
-        {/* Secondary Actions */}
-        <div className="grid grid-cols-3 gap-2">
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        {/* Secondary Actions - Very Compact */}
+        <div className="grid grid-cols-3 gap-1">
+          <a
             href="tel:+21612345678"
-            className="flex items-center justify-center gap-1.5 bg-gray-50 text-black px-3 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-100 transition-all"
+            className="flex items-center justify-center gap-0.5 bg-gray-100 text-gray-900 px-1 py-1 text-[9px] font-semibold hover:bg-gray-200 transition-colors"
           >
-            <Phone className="w-3.5 h-3.5" />
-            Call
-          </motion.a>
+            <Phone className="w-2.5 h-2.5" />
+            <span className="hidden sm:inline">APPEL</span>
+          </a>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href={`/vehicles/${id}/availability`}
-              className="flex items-center justify-center gap-1.5 bg-gray-50 text-black px-3 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-100 transition-all"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              Dates
-            </Link>
-          </motion.div>
+          <Link
+            href={`/vehicles/${id}/availability`}
+            className="flex items-center justify-center gap-0.5 bg-gray-100 text-gray-900 px-1 py-1 text-[9px] font-semibold hover:bg-gray-200 transition-colors"
+          >
+            <Calendar className="w-2.5 h-2.5" />
+            <span className="hidden sm:inline">DATES</span>
+          </Link>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={handleShare}
-            className="flex items-center justify-center gap-1.5 bg-gray-50 text-black px-3 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-100 transition-all"
+            className="flex items-center justify-center gap-0.5 bg-gray-100 text-gray-900 px-1 py-1 text-[9px] font-semibold hover:bg-gray-200 transition-colors"
           >
-            <Share2 className="w-3.5 h-3.5" />
-            Share
-          </motion.button>
+            <Share2 className="w-2.5 h-2.5" />
+            <span className="hidden sm:inline">SHARE</span>
+          </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

@@ -1,66 +1,65 @@
+import { Car, Briefcase, Mountain, Heart } from "lucide-react";
+
 export const ServicesSection = () => {
   const services = [
     {
-      title: "Private Car Rental in Dubai",
-      description: "Luxury car rental service with full flexibility. Rent a car for a day or longer with no hidden fees.",
-      icon: "🚗",
+      title: "LOCATION PRIVÉE",
+      description: "Service de location de voitures de luxe avec flexibilité totale. Louez une voiture pour un jour ou plus sans frais cachés.",
+      icon: Car,
     },
     {
-      title: "Rent a Car in Dubai for Business",
-      description: "Professional car rental solutions for corporate needs and business travel.",
-      icon: "💼",
+      title: "LOCATION BUSINESS",
+      description: "Solutions de location professionnelles pour les besoins corporatifs et les voyages d'affaires.",
+      icon: Briefcase,
     },
     {
-      title: "Desert Safari Service",
-      description: "Experience the thrill of desert adventures with our specialized safari vehicles.",
-      icon: "🏜️",
+      title: "SERVICE SAFARI DÉSERT",
+      description: "Vivez le frisson des aventures dans le désert avec nos véhicules spécialisés.",
+      icon: Mountain,
     },
     {
-      title: "Wedding and Event Car Rental",
-      description: "Make your special day unforgettable with our premium luxury vehicles.",
-      icon: "💒",
+      title: "ÉVÉNEMENTS & MARIAGES",
+      description: "Rendez votre journée spéciale inoubliable avec nos véhicules de luxe premium.",
+      icon: Heart,
     },
   ];
 
   return (
-    <section className="relative bg-black text-white py-20 overflow-hidden">
-      {/* Decorative brush strokes */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
-      
+    <section className="relative bg-gray-100 text-black py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Premium Services</h2>
-          <p className="text-gray-400 max-w-3xl mx-auto">
-            At Faster Rent a Car, we specialize in fulfilling all your car rental needs in Tunisia. We offer the widest
-            range of luxury car rentals in Tunisia, ensuring you can find rental services in the city for desert safaris, business, or vacations.
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">NOS SERVICES</h2>
+          <p className="text-gray-700 font-semibold max-w-3xl mx-auto text-sm">
+            Spécialistes en location de voitures de luxe en Tunisie
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all hover:border-yellow/50"
-            >
-              <div className="text-5xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{service.description}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 p-8 hover:shadow-lg transition-all"
+              >
+                <Icon className="w-12 h-12 mb-4 text-[#0066FF]" strokeWidth={2} />
+                <h3 className="text-xl font-bold mb-3 uppercase tracking-tight">{service.title}</h3>
+                <p className="font-medium leading-relaxed text-gray-700">{service.description}</p>
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-300 mb-6">
-            We deliver exotic cars for delivery to your door throughout Tunisia. No matter where you are located!
-            Delivery is available to your home, flat, apartment, office, or any hotel
+        <div className="mt-12 text-center bg-white p-8 shadow-md">
+          <p className="text-black font-bold mb-6 uppercase text-lg">
+            LIVRAISON PARTOUT EN TUNISIE
           </p>
-          <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-            <li>✓ Delivery is available at your home, flat, apartment, office, or at any hotel</li>
-            <li>✓ Airport delivery and pick-up services are available for everyone</li>
-            <li>✓ Full day business, private and wedding car rental services are available in our city</li>
-            <li>✓ We have your dream car available at an affordable any day of the week, or any time</li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-bold uppercase">
+            <div className="bg-gray-100 p-4">LIVRAISON À DOMICILE</div>
+            <div className="bg-gray-100 p-4">SERVICE AÉROPORT</div>
+            <div className="bg-gray-100 p-4">LOCATION BUSINESS</div>
+            <div className="bg-gray-100 p-4">DISPONIBLE 24/7</div>
+          </div>
         </div>
       </div>
     </section>

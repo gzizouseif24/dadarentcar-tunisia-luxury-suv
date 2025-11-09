@@ -18,7 +18,7 @@ const featuredCars = [
     fuelType: "Diesel" as const,
     seats: 7,
     status: "Available" as const,
-    badge: "20% Cashback",
+    badge: "20% Remise",
   },
   {
     id: "2",
@@ -45,7 +45,7 @@ const featuredCars = [
     fuelType: "Hybrid" as const,
     seats: 5,
     status: "Reserved" as const,
-    badge: "New Arrival",
+    badge: "Nouvelle Arrivée",
   },
   {
     id: "4",
@@ -85,51 +85,17 @@ const featuredCars = [
     fuelType: "Diesel" as const,
     seats: 7,
     status: "In Preparation" as const,
-    badge: "Coming Soon",
+    badge: "Bientôt Disponible",
   },
 ];
 
 export const FeaturedCars = () => {
   return (
-    <section className="relative bg-black text-white py-20 overflow-hidden">
-      {/* Decorative brush strokes */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0MCBRMjUwLDAgNTAwLDQwIFQ3NTAsNDAgVDEwMDAsNDAgVDEyNTAsNDAgVDE1MDAsNDAgVDE3NTAsNDAgVDIwMDAsNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] bg-repeat-x" />
+    <section className="relative bg-white text-black py-20 overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header with Lightning Bolt Effect */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block mb-6"
-          >
-            <Zap className="w-20 h-20 text-yellow mx-auto" fill="currentColor" />
-          </motion.div>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black mb-4"
-          >
-            FASTER <span className="text-yellow italic">SIGNATURES</span>
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
-          >
-            Discover our handpicked selection of premium vehicles, ready to elevate your driving experience
-          </motion.p>
-        </div>
-
         {/* Cars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {featuredCars.map((car) => (
             <CarCard key={car.id} {...car} />
           ))}
@@ -139,10 +105,10 @@ export const FeaturedCars = () => {
         <div className="text-center">
           <Link
             href="/vehicles"
-            className="inline-flex items-center gap-3 bg-yellow text-black px-12 py-6 rounded-xl font-black text-xl hover:bg-yellow/90 transition-all hover:scale-105 shadow-2xl"
+            className="inline-flex items-center gap-3 bg-black text-white px-12 py-4 font-bold text-lg uppercase hover:bg-gray-800 transition-colors"
           >
-            VIEW ALL CARS
-            <ArrowRight className="w-7 h-7" />
+            VOIR TOUS LES VÉHICULES
+            <ArrowRight className="w-6 h-6" />
           </Link>
         </div>
       </div>

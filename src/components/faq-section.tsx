@@ -9,32 +9,32 @@ export const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What Are The Benefits Of Renting Cars Online?",
-      answer: "As long-time monthly car rental service in our rental or car price. Faster Rent a Car offers you affordable and discounted per day rental. Also, you don't have to keep on hunting that we for 3 months total three or five weeks. We fully understand what will costs you even less. With our rental, you do need renting the car for weeks upon. Additionally, we fully understand what rental company is most suitable for you."
+      question: "Quels sont les avantages de la location de voitures en ligne ?",
+      answer: "Avec notre service de location mensuelle de voitures, nous vous offrons des tarifs abordables et des réductions sur la location journalière. Vous n'avez pas besoin de chercher pendant des semaines. Nous comprenons parfaitement vos besoins et vous proposons les meilleures options de location adaptées à votre budget et à votre durée de séjour."
     },
     {
-      question: "How Do I Rent A Car With Bad Credit Or Without Credit Cards?",
-      answer: "We accept multiple payment methods including credit cards, debit cards, bank transfers, Western Union, and cash deposits. Contact us directly to discuss alternative payment options."
+      question: "Comment louer une voiture sans carte de crédit ?",
+      answer: "Nous acceptons plusieurs modes de paiement incluant les cartes de crédit, les cartes de débit, les virements bancaires, Western Union et les dépôts en espèces. Contactez-nous directement pour discuter des options de paiement alternatives."
     },
     {
-      question: "What Is The Deposit Policy?",
-      answer: "Standard vehicles require a 150 DT deposit, while premium vehicles require a 300 DT deposit. The deposit is fully refundable upon return of the vehicle in the same condition."
+      question: "Quelle est la politique de dépôt ?",
+      answer: "Les véhicules standards nécessitent un dépôt de 150 DT, tandis que les véhicules premium nécessitent un dépôt de 300 DT. Le dépôt est entièrement remboursable au retour du véhicule dans le même état."
     },
     {
-      question: "Is Rent A Car Covering Covered Or The Rental Fee?",
-      answer: "Yes, all our rental fees include comprehensive insurance coverage. Additional coverage options are available for enhanced peace of mind."
+      question: "L'assurance est-elle incluse dans le tarif de location ?",
+      answer: "Oui, tous nos tarifs de location incluent une couverture d'assurance complète. Des options de couverture supplémentaires sont disponibles pour une tranquillité d'esprit accrue."
     },
     {
-      question: "What Happens In Case Of An Accident Or Breakdown?",
-      answer: "We provide 24/7 roadside assistance. In case of any accident or breakdown, contact our support team immediately. We'll arrange for repairs or replacement vehicle as needed."
+      question: "Que se passe-t-il en cas d'accident ou de panne ?",
+      answer: "Nous fournissons une assistance routière 24h/24 et 7j/7. En cas d'accident ou de panne, contactez immédiatement notre équipe d'assistance. Nous organiserons les réparations ou le véhicule de remplacement selon les besoins."
     },
     {
-      question: "Is It Possible To Extend The Lease Or If I Rent A Car In Dubai Agreement?",
-      answer: "Yes! You can easily extend your rental period. Simply contact us before your rental period ends, and we'll arrange the extension with updated pricing and documentation."
+      question: "Est-il possible de prolonger la période de location ?",
+      answer: "Oui ! Vous pouvez facilement prolonger votre période de location. Contactez-nous simplement avant la fin de votre période de location, et nous organiserons la prolongation avec une tarification et une documentation mises à jour."
     },
     {
-      question: "Are There Any Age Limits For Car Rental Service In Dubai?",
-      answer: "The minimum age for renting is 21 years old with a valid driver's license. Some premium vehicles may require drivers to be 25 years or older."
+      question: "Y a-t-il des limites d'âge pour la location de voitures ?",
+      answer: "L'âge minimum pour la location est de 21 ans avec un permis de conduire valide. Certains véhicules premium peuvent nécessiter que les conducteurs aient 25 ans ou plus."
     },
   ];
 
@@ -42,7 +42,7 @@ export const FAQSection = () => {
     <section className="bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Questions Fréquemment Posées</h2>
         </div>
 
         <div className="space-y-4">

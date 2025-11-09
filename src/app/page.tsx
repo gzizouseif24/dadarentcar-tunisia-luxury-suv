@@ -1,10 +1,15 @@
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/hero-section";
-import { BrandFilter } from "@/components/brand-filter";
-import { FeaturedCars } from "@/components/featured-cars";
-import { CategoryShowcase } from "@/components/category-showcase";
-import { PromoBanner } from "@/components/promo-banner";
-import { ServicesSection } from "@/components/services-section";
-import { FAQSection } from "@/components/faq-section";
+
+// Lazy load below-the-fold components
+const BrandFilter = dynamic(() => import("@/components/brand-filter").then(mod => ({ default: mod.BrandFilter })), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse" />
+});
+const FeaturedCars = dynamic(() => import("@/components/featured-cars").then(mod => ({ default: mod.FeaturedCars })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+});
+const CategoryShowcase = dynamic(() => import("@/components/category-showcase").then(mod => ({ default: mod.CategoryShowcase })));
+const FAQSection = dynamic(() => import("@/components/faq-section").then(mod => ({ default: mod.FAQSection })));
 
 export default function Home() {
   return (
@@ -13,8 +18,6 @@ export default function Home() {
       <BrandFilter />
       <FeaturedCars />
       <CategoryShowcase />
-      <PromoBanner />
-      <ServicesSection />
       <FAQSection />
     </div>
   );

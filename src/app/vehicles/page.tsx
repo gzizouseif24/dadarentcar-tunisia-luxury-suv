@@ -17,7 +17,7 @@ const allVehicles = [
     fuelType: "Diesel" as const,
     seats: 7,
     status: "Available" as const,
-    badge: "20% Cashback",
+    badge: "20% Remise",
   },
   {
     id: "2",
@@ -44,7 +44,7 @@ const allVehicles = [
     fuelType: "Hybrid" as const,
     seats: 5,
     status: "Reserved" as const,
-    badge: "New Arrival",
+    badge: "Nouvelle Arrivée",
   },
   {
     id: "4",
@@ -84,7 +84,7 @@ const allVehicles = [
     fuelType: "Diesel" as const,
     seats: 7,
     status: "In Preparation" as const,
-    badge: "Coming Soon",
+    badge: "Bientôt Disponible",
   },
   {
     id: "7",
@@ -175,6 +175,36 @@ export default function VehiclesPage() {
   const [showFilters, setShowFilters] = useState(false);
 
   const filteredVehicles = useMemo(() => {
+    let filtered = allVehicles;
+    
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter(v => v.category.toLowerCase() === selectedCategory);
+    }
+    if (selectedBrand !== "all") {
+      filtered = filtered.filter(v => v.brand.toLowerCase() === selectedBrand.toLowerCase());
+    }
+    if (selectedGearbox !== "all") {
+      filtered = filtered.filter(v => v.gearbox.toLowerCase() === selectedGearbox);
+    }
+    if (selectedFuelType !== "all") {
+      filtered = filtered.filter(v => v.fuelType.toLowerCase() === selectedFuelType);
+    }
+    if (priceRange !== "all") {
+      filtered = filtered.filter(v => {
+        const price = v.dailyPrice;
+        if (priceRange === "0-150") return price <= 150;
+        if (priceRange === "150-250") return price >= 150 && price <= 250;
+        if (priceRange === "250-350") return price >= 250 && price <= 350;
+        if (priceRange === "350+") return price >= 350;
+        return true;
+      });
+    }
+    
+    return filtered;
+  }, [selectedCategory, selectedBrand, selectedGearbox, selectedFuelType, priceRange]);
+
+  // Old implementation - remove this
+  const _oldFilteredVehicles = useMemo(() => {
     return allVehicles.filter((vehicle) => {
       if (selectedCategory !== "all" && vehicle.category.toLowerCase() !== selectedCategory) {
         return false;
@@ -198,15 +228,16 @@ export default function VehiclesPage() {
       return true;
     });
   }, [selectedCategory, selectedBrand, selectedGearbox, selectedFuelType, priceRange]);
+  // End old implementation */
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-black text-white py-12">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">Our Fleet</h1>
-          <p className="text-gray-300">
-            Browse our extensive collection of luxury and SUV vehicles
+          <h1 className="text-4xl font-bold mb-4">Notre Flotte</h1>
+          <p className="text-blue-50">
+            Parcourez notre vaste collection de véhicules de luxe et SUV
           </p>
         </div>
       </div>
@@ -218,21 +249,21 @@ export default function VehiclesPage() {
             {/* Mobile Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="lg:hidden flex items-center gap-2 bg-yellow text-black px-4 py-3 rounded-lg font-semibold w-full justify-center mb-4"
+              className="lg:hidden flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold w-full justify-center mb-4 shadow-md"
             >
               <SlidersHorizontal className="w-5 h-5" />
-              {showFilters ? "Hide Filters" : "Show Filters"}
+              {showFilters ? "Masquer les Filtres" : "Afficher les Filtres"}
             </button>
 
-            <div className={`bg-white rounded-lg p-6 shadow-md ${showFilters ? "block" : "hidden lg:block"}`}>
+            <div className={`bg-white rounded-lg p-6 shadow-md border border-blue-100 ${showFilters ? "block" : "hidden lg:block"}`}>
               <div className="flex items-center gap-2 mb-6">
-                <Filter className="w-5 h-5 text-yellow" />
-                <h2 className="text-xl font-bold text-black">Filters</h2>
+                <Filter className="w-5 h-5 text-blue-600" />
+                <h2 className="text-xl font-bold text-blue-900">Filtres</h2>
               </div>
 
               {/* Category Filter */}
               <div className="mb-6">
-                <h3 className="font-semibold text-black mb-3">Category</h3>
+                <h3 className="font-semibold text-black mb-3">Catégorie</h3>
                 <div className="space-y-2">
                   {["all", "suv", "luxury", "standard"].map((category) => (
                     <label key={category} className="flex items-center gap-2 cursor-pointer">
@@ -244,7 +275,7 @@ export default function VehiclesPage() {
                         onChange={(e) => setSelectedCategory(e.target.value)}
                         className="w-4 h-4 accent-yellow"
                       />
-                      <span className="text-gray-700 capitalize">{category === "all" ? "All Categories" : category}</span>
+                      <span className="text-gray-700 capitalize">{category === "all" ? "Toutes les Catégories" : category}</span>
                     </label>
                   ))}
                 </div>
@@ -252,13 +283,13 @@ export default function VehiclesPage() {
 
               {/* Brand Filter */}
               <div className="mb-6">
-                <h3 className="font-semibold text-black mb-3">Brand</h3>
+                <h3 className="font-semibold text-black mb-3">Marque</h3>
                 <select
                   value={selectedBrand}
                   onChange={(e) => setSelectedBrand(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow"
                 >
-                  <option value="all">All Brands</option>
+                  <option value="all">Toutes les Marques</option>
                   <option value="nissan">Nissan</option>
                   <option value="bmw">BMW</option>
                   <option value="mercedes">Mercedes</option>
@@ -274,7 +305,7 @@ export default function VehiclesPage() {
 
               {/* Gearbox Filter */}
               <div className="mb-6">
-                <h3 className="font-semibold text-black mb-3">Gearbox</h3>
+                <h3 className="font-semibold text-black mb-3">Boîte de Vitesses</h3>
                 <div className="space-y-2">
                   {["all", "automatic", "manual"].map((gearbox) => (
                     <label key={gearbox} className="flex items-center gap-2 cursor-pointer">
@@ -286,7 +317,7 @@ export default function VehiclesPage() {
                         onChange={(e) => setSelectedGearbox(e.target.value)}
                         className="w-4 h-4 accent-yellow"
                       />
-                      <span className="text-gray-700 capitalize">{gearbox === "all" ? "All Types" : gearbox}</span>
+                      <span className="text-gray-700 capitalize">{gearbox === "all" ? "Tous les Types" : gearbox === "automatic" ? "Automatique" : "Manuelle"}</span>
                     </label>
                   ))}
                 </div>
@@ -294,7 +325,7 @@ export default function VehiclesPage() {
 
               {/* Fuel Type Filter */}
               <div className="mb-6">
-                <h3 className="font-semibold text-black mb-3">Fuel Type</h3>
+                <h3 className="font-semibold text-black mb-3">Type de Carburant</h3>
                 <div className="space-y-2">
                   {["all", "diesel", "petrol", "hybrid", "electric"].map((fuel) => (
                     <label key={fuel} className="flex items-center gap-2 cursor-pointer">
@@ -306,7 +337,7 @@ export default function VehiclesPage() {
                         onChange={(e) => setSelectedFuelType(e.target.value)}
                         className="w-4 h-4 accent-yellow"
                       />
-                      <span className="text-gray-700 capitalize">{fuel === "all" ? "All Types" : fuel}</span>
+                      <span className="text-gray-700 capitalize">{fuel === "all" ? "Tous les Types" : fuel === "diesel" ? "Diesel" : fuel === "petrol" ? "Essence" : fuel === "hybrid" ? "Hybride" : "Électrique"}</span>
                     </label>
                   ))}
                 </div>
@@ -314,10 +345,10 @@ export default function VehiclesPage() {
 
               {/* Price Range Filter */}
               <div className="mb-6">
-                <h3 className="font-semibold text-black mb-3">Daily Price</h3>
+                <h3 className="font-semibold text-black mb-3">Prix Journalier</h3>
                 <div className="space-y-2">
                   {[
-                    { label: "All Prices", value: "all" },
+                    { label: "Tous les Prix", value: "all" },
                     { label: "0 - 150 DT", value: "0-150" },
                     { label: "150 - 250 DT", value: "150-250" },
                     { label: "250 - 350 DT", value: "250-350" },
@@ -347,9 +378,9 @@ export default function VehiclesPage() {
                   setSelectedFuelType("all");
                   setPriceRange("all");
                 }}
-                className="w-full bg-gray-200 text-black px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+                className="w-full bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-100 transition-colors"
               >
-                Reset Filters
+                Réinitialiser les Filtres
               </button>
             </div>
           </div>
@@ -357,9 +388,9 @@ export default function VehiclesPage() {
           {/* Vehicle Grid */}
           <div className="flex-1">
             <div className="mb-6">
-              <p className="text-gray-600">
-                Showing <span className="font-semibold text-black">{filteredVehicles.length}</span> of{" "}
-                <span className="font-semibold text-black">{allVehicles.length}</span> vehicles
+              <p className="text-blue-600">
+                Affichage de <span className="font-semibold text-blue-900">{filteredVehicles.length}</span> sur{" "}
+                <span className="font-semibold text-blue-900">{allVehicles.length}</span> véhicules
               </p>
             </div>
 
@@ -371,7 +402,7 @@ export default function VehiclesPage() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No vehicles found matching your filters.</p>
+                <p className="text-gray-500 text-lg">Aucun véhicule trouvé correspondant à vos filtres.</p>
                 <button
                   onClick={() => {
                     setSelectedCategory("all");
@@ -380,9 +411,9 @@ export default function VehiclesPage() {
                     setSelectedFuelType("all");
                     setPriceRange("all");
                   }}
-                  className="mt-4 bg-yellow text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow/90 transition-colors"
+                  className="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md"
                 >
-                  Clear All Filters
+                  Effacer Tous les Filtres
                 </button>
               </div>
             )}

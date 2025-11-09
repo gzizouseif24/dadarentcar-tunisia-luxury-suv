@@ -16,8 +16,8 @@ export const PromoBanner = () => {
                 alt="Modified Luxury SUV"
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />
-              {/* Yellow accent badges */}
-              <div className="absolute -top-4 -right-4 bg-yellow text-black px-6 py-3 rounded-full font-black text-2xl transform rotate-12 shadow-lg">
+              {/* Blue accent badges */}
+              <div className="absolute -top-4 -right-4 bg-blue-600 text-white px-6 py-3 rounded-full font-black text-2xl transform rotate-12 shadow-lg">
                 2024
               </div>
             </div>
@@ -25,21 +25,21 @@ export const PromoBanner = () => {
 
           {/* Right side - Content */}
           <div className="lg:w-1/2 text-center lg:text-left">
-            <div className="inline-block bg-black text-yellow px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
               EXCLUSIVE OFFER
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
+            <h2 className="text-4xl md:text-6xl font-black text-blue-900 mb-4">
               Earn Emirates Airmiles
             </h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-gray-700 mb-6">
+            <h3 className="text-3xl md:text-5xl font-bold text-blue-700 mb-6">
               When You Rent From US...
             </h3>
-            <p className="text-xl text-gray-600 mb-8 max-w-xl">
+            <p className="text-xl text-blue-600 mb-8 max-w-xl">
               Enjoy exclusive benefits and earn rewards with every rental. Experience luxury travel with our premium fleet.
             </p>
             <Link
               href="/special-offers"
-              className="inline-block bg-black text-yellow px-10 py-5 rounded-xl font-bold text-xl hover:bg-gray-900 transition-all shadow-lg hover:shadow-2xl hover:-translate-y-1"
+              className="inline-block bg-blue-600 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-2xl hover:-translate-y-1"
             >
               Know More
             </Link>

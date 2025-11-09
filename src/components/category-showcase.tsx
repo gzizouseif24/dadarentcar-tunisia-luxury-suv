@@ -7,38 +7,38 @@ import { ArrowRight } from "lucide-react";
 export const CategoryShowcase = () => {
   const categories = [
     {
-      name: "MODIFIED CAR",
-      count: "46 Cars",
+      name: "VOITURE MODIFIÉE",
+      count: "46 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-75237027-20251107205230.jpg",
       category: "modified",
     },
     {
-      name: "SUV CAR",
-      count: "152 Cars",
+      name: "VOITURE SUV",
+      count: "152 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-21f20aca-20251107205233.jpg",
       category: "suv",
     },
     {
-      name: "LUXURY CAR",
-      count: "126 Cars",
+      name: "VOITURE DE LUXE",
+      count: "126 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1e2f42f6-20251107205231.jpg",
       category: "luxury",
     },
     {
-      name: "SPORTS CAR",
-      count: "68 Cars",
+      name: "VOITURE DE SPORT",
+      count: "68 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1b081630-20251107205232.jpg",
       category: "sports",
     },
     {
-      name: "MONTHLY CAR",
-      count: "185 Cars",
+      name: "LOCATION MENSUELLE",
+      count: "185 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-1bd2fa44-20251107205234.jpg",
       category: "monthly",
     },
     {
-      name: "CONVERTIBLE CAR",
-      count: "25 Cars",
+      name: "VOITURE CABRIOLET",
+      count: "25 Voitures",
       image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/f5ea3f92-a122-434f-ad3a-e1b4b3ccf56c/generated_images/professional-automotive-photography-of-a-6cd8deae-20251107205255.jpg",
       category: "convertible",
     },
@@ -57,7 +57,7 @@ export const CategoryShowcase = () => {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl font-black text-black mb-6"
           >
-            FASTER CAR RENTAL DUBAI
+            LOCATION DE VOITURES TUNISIE
           </motion.h2>
         </div>
 
@@ -108,7 +108,7 @@ export const CategoryShowcase = () => {
             href="/vehicles"
             className="inline-flex items-center gap-2 bg-black text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-900 transition-all border-4 border-yellow"
           >
-            VIEW MORE
+            VOIR PLUS
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>

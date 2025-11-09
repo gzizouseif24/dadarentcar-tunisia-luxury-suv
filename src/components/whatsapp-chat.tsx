@@ -66,7 +66,7 @@ export const WhatsAppChat = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed right-6 bottom-24 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 animate-bounce"
+          className="fixed right-6 bottom-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 animate-bounce"
           aria-label="Open WhatsApp Chat"
         >
           <MessageCircle className="w-7 h-7" />
@@ -78,7 +78,7 @@ export const WhatsAppChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed right-6 bottom-24 z-50 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-xl shadow-2xl overflow-hidden">
+        <div className="fixed right-6 bottom-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-xl shadow-2xl overflow-hidden">
           {/* Header */}
           <div className="bg-green-500 text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
