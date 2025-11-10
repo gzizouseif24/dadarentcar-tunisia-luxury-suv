@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, MapPin, Phone } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import type { Car } from '@/lib/car-data';
 
 interface BookingFormProps {
@@ -9,8 +10,10 @@ interface BookingFormProps {
 }
 
 export function BookingForm({ car }: BookingFormProps) {
+  const router = useRouter();
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
+  const [pickupLocation, setPickupLocation] = useState('Tunis Aéroport');
   const [days, setDays] = useState(1);
 
   const calculateDays = (pickup: string, returnD: string) => {
@@ -35,9 +38,31 @@ export function BookingForm({ car }: BookingFormProps) {
 
   const totalPrice = car.dailyPrice * days;
   
+  const handleBooking = () => {
+    // Create booking data
+    const bookingData = {
+      car: `${car.brand} ${car.name}`,
+      carId: car.id,
+      pickupDate,
+      returnDate,
+      pickupLocation,
+      days,
+      dailyPrice: car.dailyPrice,
+      totalPrice,
+    };
+    
+    // Store in sessionStorage for the booking page
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
+    }
+    
+    // Navigate to booking page
+    router.push('/booking');
+  };
+  
   return (
-    <div className="sticky top-24 border-2 border-gray-300 p-6 bg-white shadow-lg">
-      <h3 className="text-2xl font-black mb-6 uppercase">RÉSERVER</h3>
+    <div className="sticky top-24 border-2 border-blue-200 p-6 bg-white shadow-lg rounded-lg">
+      <h3 className="text-2xl font-black mb-6 uppercase text-[#0066FF]">RÉSERVER</h3>
       
       <div className="space-y-4">
         {/* Pickup Date */}
@@ -50,7 +75,7 @@ export function BookingForm({ car }: BookingFormProps) {
             type="date"
             value={pickupDate}
             onChange={(e) => handlePickupChange(e.target.value)}
-            className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none"
+            className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none rounded-lg"
             min={new Date().toISOString().split('T')[0]}
           />
         </div>
@@ -65,7 +90,7 @@ export function BookingForm({ car }: BookingFormProps) {
             type="date"
             value={returnDate}
             onChange={(e) => handleReturnChange(e.target.value)}
-            className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none"
+            className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none rounded-lg"
             min={pickupDate || new Date().toISOString().split('T')[0]}
           />
         </div>
@@ -76,7 +101,11 @@ export function BookingForm({ car }: BookingFormProps) {
             <MapPin className="w-4 h-4 inline mr-2" />
             Lieu de prise en charge
           </label>
-          <select className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none">
+          <select 
+            value={pickupLocation}
+            onChange={(e) => setPickupLocation(e.target.value)}
+            className="w-full border-2 border-gray-300 px-4 py-3 font-semibold focus:border-[#0066FF] focus:outline-none rounded-lg"
+          >
             <option>Tunis Aéroport</option>
             <option>Tunis Centre-ville</option>
             <option>Sousse</option>
@@ -103,7 +132,11 @@ export function BookingForm({ car }: BookingFormProps) {
         </div>
         
         {/* Book Button */}
-        <button className="w-full bg-black text-white py-4 font-bold uppercase hover:bg-gray-800 transition-colors text-sm">
+        <button 
+          onClick={handleBooking}
+          disabled={!pickupDate || !returnDate}
+          className="w-full bg-[#0066FF] text-white py-4 font-bold uppercase hover:bg-blue-600 transition-colors text-sm rounded-lg disabled:bg-gray-300 disabled:cursor-not-allowed"
+        >
           RÉSERVER MAINTENANT
         </button>
         
@@ -112,7 +145,7 @@ export function BookingForm({ car }: BookingFormProps) {
           href={`https://wa.me/21612345678?text=Bonjour! Je veux réserver ${car.brand} ${car.name} (${car.dailyPrice} DT/jour)`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full bg-green-500 text-white py-4 font-bold uppercase hover:bg-green-600 transition-colors flex items-center justify-center gap-2 text-sm"
+          className="w-full bg-green-500 text-white py-4 font-bold uppercase hover:bg-green-600 transition-colors flex items-center justify-center gap-2 text-sm rounded-lg"
         >
           <Phone className="w-5 h-5" />
           CONTACTER PAR WHATSAPP
@@ -121,7 +154,7 @@ export function BookingForm({ car }: BookingFormProps) {
         {/* Call */}
         <a
           href="tel:+21612345678"
-          className="w-full bg-gray-100 text-gray-900 py-3 font-bold uppercase hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 text-sm"
+          className="w-full bg-gray-100 text-gray-900 py-3 font-bold uppercase hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 text-sm rounded-lg"
         >
           <Phone className="w-4 h-4" />
           APPELER: +216 12 345 678

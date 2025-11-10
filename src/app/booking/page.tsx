@@ -41,6 +41,26 @@ function BookingPageContent() {
   const [dailyRate] = useState(250);
   const [totalCost, setTotalCost] = useState(0);
 
+  // Load booking data from sessionStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedData = sessionStorage.getItem('bookingData');
+      if (savedData) {
+        const bookingData = JSON.parse(savedData);
+        setFormData(prev => ({
+          ...prev,
+          carModel: bookingData.car,
+          pickupDate: bookingData.pickupDate,
+          returnDate: bookingData.returnDate,
+          pickupLocation: bookingData.pickupLocation,
+          returnLocation: bookingData.pickupLocation,
+        }));
+        setTotalDays(bookingData.days);
+        setTotalCost(bookingData.totalPrice + deposit);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     if (formData.pickupDate && formData.returnDate) {
       const pickup = new Date(formData.pickupDate);

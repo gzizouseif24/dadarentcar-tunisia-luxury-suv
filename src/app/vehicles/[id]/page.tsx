@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const car = getCarById(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const car = getCarById(id);
   
   if (!car) {
     return {
@@ -26,8 +27,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-export default function CarDetailPage({ params }: { params: { id: string } }) {
-  const car = getCarById(params.id);
+export default async function CarDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const car = getCarById(id);
   
   if (!car) {
     notFound();
