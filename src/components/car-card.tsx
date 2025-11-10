@@ -3,6 +3,7 @@
 import { MessageCircle, Phone, Calendar, Share2, Settings, Fuel, Users } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface CarCardProps {
   id: string;
@@ -48,8 +49,13 @@ export const CarCard = ({
   };
 
   return (
-    <div
-      className="border border-gray-200 bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -8 }}
+      className="border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden"
     >
       {/* Image Container - Clickable to detail page */}
       <Link href={`/vehicles/${id}`} className="block">
@@ -153,6 +159,6 @@ export const CarCard = ({
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

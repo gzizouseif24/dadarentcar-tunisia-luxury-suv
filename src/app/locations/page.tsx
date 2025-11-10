@@ -96,12 +96,24 @@ export default function LocationsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Map Placeholder */}
+        {/* Interactive Map */}
         <div className="mb-12 bg-white rounded-xl shadow-md overflow-hidden">
-          <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-[#0066FF] mx-auto mb-4" />
-              <p className="text-gray-600 font-semibold">Carte interactive des locations</p>
+          <div className="aspect-video relative">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102974.03932766!2d10.098800849999999!3d36.8064948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis%2C%20Tunisia!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0"
+            ></iframe>
+          </div>
+          <div className="p-4 bg-blue-50 border-t-2 border-[#0066FF]">
+            <div className="flex items-center gap-2 text-[#0066FF]">
+              <MapPin className="w-5 h-5" />
+              <p className="font-semibold">Cliquez sur la carte pour explorer nos emplacements en Tunisie</p>
             </div>
           </div>
         </div>

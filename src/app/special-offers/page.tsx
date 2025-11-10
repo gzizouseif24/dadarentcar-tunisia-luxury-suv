@@ -88,78 +88,42 @@ export default function SpecialOffersPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero Promotions */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {/* Main Offer */}
-          <div className="relative bg-gradient-to-br from-[#0066FF] via-blue-500 to-blue-600 text-white rounded-2xl p-8 shadow-2xl overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
-            <div className="relative z-10">
-              <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-                <Sparkles className="w-5 h-5 inline mr-2" />
-                <span className="font-bold">Offre Exclusive</span>
-              </div>
-              <h3 className="text-4xl font-black mb-4">Jusqu'à 25% de Réduction</h3>
-              <p className="text-xl text-white/90 mb-6">
-                Sur les locations mensuelles de tous nos véhicules premium
-              </p>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Assurance complète incluse</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Kilométrage illimité</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Assistance 24/7</span>
-                </li>
-              </ul>
-              <Link
-                href="/vehicles"
-                className="inline-block bg-white text-[#0066FF] px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-              >
-                Voir les Véhicules
-              </Link>
+        {/* Simplified Promotions Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* Weekly Offer */}
+          <div className="group bg-white border-2 border-blue-100 rounded-xl p-8 shadow-lg hover:shadow-xl hover:border-[#0066FF] transition-all duration-300">
+            <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#0066FF] transition-colors">
+              <Clock className="w-8 h-8 text-[#0066FF] group-hover:text-white transition-colors" />
             </div>
+            <h3 className="text-2xl font-bold text-black mb-2">Location Hebdomadaire</h3>
+            <div className="text-5xl font-black text-[#0066FF] mb-3">15%</div>
+            <p className="text-gray-600">
+              Économisez sur les locations de 7 jours ou plus
+            </p>
           </div>
 
-          {/* Secondary Offers Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Weekly Offer */}
-            <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-2xl p-6 shadow-lg">
-              <Gift className="w-10 h-10 mb-3" />
-              <h4 className="text-2xl font-bold mb-2">Location Hebdomadaire</h4>
-              <div className="text-5xl font-black mb-2">15%</div>
-              <p className="text-emerald-100 text-sm">
-                Économisez sur 7 jours ou plus
-              </p>
+          {/* Flash Offer */}
+          <div className="group bg-white border-2 border-blue-100 rounded-xl p-8 shadow-lg hover:shadow-xl hover:border-[#0066FF] transition-all duration-300">
+            <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#0066FF] transition-colors">
+              <Zap className="w-8 h-8 text-[#0066FF] group-hover:text-white transition-colors" />
             </div>
+            <h3 className="text-2xl font-bold text-black mb-2">Réservation Anticipée</h3>
+            <div className="text-5xl font-black text-[#0066FF] mb-3">20%</div>
+            <p className="text-gray-600">
+              Réservez 7 jours à l'avance et économisez
+            </p>
+          </div>
 
-            {/* Flash Offer */}
-            <div className="bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-2xl p-6 shadow-lg">
-              <Zap className="w-10 h-10 mb-3" />
-              <h4 className="text-2xl font-bold mb-2">Offre Flash</h4>
-              <div className="text-5xl font-black mb-2">20%</div>
-              <p className="text-amber-100 text-sm">
-                Réservez aujourd'hui
-              </p>
+          {/* Monthly Offer */}
+          <div className="group bg-white border-2 border-blue-100 rounded-xl p-8 shadow-lg hover:shadow-xl hover:border-[#0066FF] transition-all duration-300">
+            <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#0066FF] transition-colors">
+              <TrendingDown className="w-8 h-8 text-[#0066FF] group-hover:text-white transition-colors" />
             </div>
-
-            {/* Long Term */}
-            <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-2xl p-6 shadow-lg sm:col-span-2">
-              <TrendingDown className="w-10 h-10 mb-3" />
-              <h4 className="text-2xl font-bold mb-2">Location Longue Durée</h4>
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-5xl font-black">25%</span>
-                <span className="text-xl">de réduction</span>
-              </div>
-              <p className="text-purple-100 text-sm">
-                Pour les locations de 30 jours et plus • Tarifs préférentiels
-              </p>
-            </div>
+            <h3 className="text-2xl font-bold text-black mb-2">Location Mensuelle</h3>
+            <div className="text-5xl font-black text-[#0066FF] mb-3">25%</div>
+            <p className="text-gray-600">
+              Meilleur tarif pour 30 jours et plus
+            </p>
           </div>
         </div>
 
