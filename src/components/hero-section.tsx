@@ -132,8 +132,8 @@ export const HeroSection = () => {
                   {/* CTA Button */}
                   <div className="pt-4">
                     <Link
-                      href="/vehicules"
-                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-white text-white hover:text-black border-4 border-black px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1"
+                      href="/vehicles"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-blue-700 text-white px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors rounded-lg"
                     >
                       VOIR NOS VÉHICULES
                       <ArrowRight className="w-5 h-5" />
