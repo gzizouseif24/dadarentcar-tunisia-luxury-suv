@@ -42,41 +42,16 @@ export const CarCard = ({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4 }}
-      whileHover={{ y: -8 }}
-      className="border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden"
-    >
-      {/* Image Container - Clickable to detail page */}
-        <Link href={`/vehicles/${id}`} className="block">
-          <Image
-            src={image}
-            alt={`${brand} ${name}`}
-            width={800}
-            height={600}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-            quality={80}
-            className="w-full h-full object-cover"
-          />
-          
-          {/* Discount Badge - Small banner */}
-          {badge && (
-            <div className="absolute top-3 right-3 bg-red-500 px-2 py-1 shadow-md">
-              <span className="text-[10px] font-bold uppercase tracking-wide text-white">
-                {badge}
-              </span>
-            </div>
-          )}
-        </div>
-      </Link>
-
-      {/* Content - Compact with smaller text */}
-      <div className="p-3 space-y-1.5">
-        {/* Category & Title Combined - Clickable */}
->>>>>>> 4239fc180f0e08a3e77c2a8c920d23dda45e08fa
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4 }}
+        whileHover={{ y: -8 }}
+        className="border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden"
+      >
+        {/* Image Container - Clickable to detail page */}
         <Link href={`/vehicles/${id}`} className="block">
           <div className="relative overflow-hidden aspect-[4/3]">
             <Image
@@ -88,7 +63,7 @@ export const CarCard = ({
               quality={80}
               className="w-full h-full object-cover"
             />
-            
+
             {/* Discount Badge - Small banner */}
             {badge && (
               <div className="absolute top-3 left-3 bg-red-500 px-2 py-1 shadow-md">
@@ -112,7 +87,7 @@ export const CarCard = ({
                 {brand} {name}
               </h3>
             </Link>
-            
+
             {/* Share Icon - Next to car name */}
             <button
               onClick={(e) => {
@@ -133,14 +108,14 @@ export const CarCard = ({
               </svg>
             </button>
           </div>
-          
+
           {/* Price - Inline with Features */}
           <div className="flex items-center justify-between border-t border-gray-200 pt-2">
             <div className="flex items-baseline gap-1">
               <span className="text-2xl font-black text-[#0066FF]">{dailyPrice}</span>
               <span className="text-[10px] font-bold text-gray-700">DT/J</span>
             </div>
-            
+
             {/* Features - Inline */}
             <div className="flex gap-2">
               <div className="flex items-center gap-0.5">
@@ -153,7 +128,7 @@ export const CarCard = ({
               </div>
             </div>
           </div>
-          
+
           {/* 5 Action Buttons */}
           <div className="space-y-1.5 pt-1">
             {/* Row 1: Réserver & Disponibilité */}
@@ -197,7 +172,7 @@ export const CarCard = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Modal Popup */}
       {showModal && (
@@ -216,11 +191,11 @@ export const CarCard = ({
               <div className="w-16 h-16 bg-[#0066FF] rounded-full mx-auto flex items-center justify-center">
                 <span className="text-4xl">🚗</span>
               </div>
-              
+
               <h3 className="text-2xl font-black uppercase text-black">
                 Action Requise
               </h3>
-              
+
               <p className="text-base font-bold text-gray-700">
                 Vous devez d'abord louer une voiture
               </p>
@@ -236,6 +211,6 @@ export const CarCard = ({
           </div>
         </div>
       )}
-    </motion.div>
+    </>
   );
 };
