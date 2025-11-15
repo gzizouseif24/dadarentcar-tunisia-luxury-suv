@@ -133,7 +133,7 @@ export const HeroSection = () => {
                   <div className="pt-4">
                     <Link
                       href="/vehicles"
-                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-blue-700 text-white px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors rounded-lg"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-white text-white hover:text-[#0066FF] border-4 border-white px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors rounded-lg"
                     >
                       VOIR NOS VÉHICULES
                       <ArrowRight className="w-5 h-5" />

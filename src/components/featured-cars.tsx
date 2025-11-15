@@ -260,7 +260,7 @@ export const FeaturedCars = () => {
         <div className="text-center">
           <Link
             href="/vehicles"
-            className="inline-flex items-center gap-3 bg-black text-white px-12 py-4 font-bold text-lg uppercase hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center gap-3 bg-[#0066FF] text-white px-12 py-4 rounded-lg font-bold text-lg uppercase hover:bg-blue-600 transition-colors"
           >
             VOIR TOUS LES VÉHICULES
             <ArrowRight className="w-6 h-6" />

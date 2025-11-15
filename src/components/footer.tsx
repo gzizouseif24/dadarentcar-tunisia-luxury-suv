@@ -35,18 +35,23 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/vehicles?category=suv" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
-                  SUVS
-                </Link>
-              </li>
-              <li>
-                <Link href="/vehicles?category=luxury" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
-                  LUXE
-                </Link>
-              </li>
-              <li>
                 <Link href="/special-offers" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
-                  OFFRES
+                  OFFRES SPÉCIALES
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
+                  LOCATIONS
+                </Link>
+              </li>
+              <li>
+                <Link href="/blogs" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
+                  BLOGS
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-white hover:text-[#0066FF] transition-colors font-bold uppercase">
+                  CONTACT
                 </Link>
               </li>
             </ul>

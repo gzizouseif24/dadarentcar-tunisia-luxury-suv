@@ -39,24 +39,25 @@ export const FAQSection = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section id="faqs" className="bg-gray-50 py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Questions Fréquemment Posées</h2>
+          <p className="text-lg text-gray-600">Trouvez les réponses à vos questions</p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-black text-white rounded-lg overflow-hidden"
+              className="bg-white border-2 border-blue-100 rounded-lg overflow-hidden hover:border-[#0066FF] transition-colors"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-900 transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-blue-50 transition-colors"
               >
-                <span className="font-semibold text-lg pr-4">
-                  <span className="text-yellow mr-3">{index + 1}</span>
+                <span className="font-semibold text-lg pr-4 text-black">
+                  <span className="text-[#0066FF] mr-3 font-bold">{index + 1}</span>
                   {faq.question}
                 </span>
                 <motion.div
@@ -64,7 +65,7 @@ export const FAQSection = () => {
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
-                  <ChevronDown className="w-6 h-6 text-yellow" />
+                  <ChevronDown className="w-6 h-6 text-[#0066FF]" />
                 </motion.div>
               </button>
               
@@ -77,7 +78,7 @@ export const FAQSection = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <div className="px-6 pb-6 text-gray-700 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

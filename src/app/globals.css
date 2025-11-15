@@ -64,19 +64,19 @@
   --secondary-foreground: oklch(0 0 0);
   --muted: oklch(0.96 0 0); /* Very light gray */
   --muted-foreground: oklch(0.4 0 0);
-  --accent: oklch(0.85 0.15 85); /* Yellow accent */
-  --accent-foreground: oklch(0 0 0);
-  --yellow: oklch(0.85 0.15 85); /* Yellow for urgency */
-  --yellow-foreground: oklch(0 0 0);
+  --accent: oklch(0.45 0.22 264); /* Blue accent - changed from yellow */
+  --accent-foreground: oklch(1 0 0); /* White on blue */
+  --yellow: oklch(0.45 0.22 264); /* Blue instead of yellow - #0066FF */
+  --yellow-foreground: oklch(1 0 0); /* White on blue */
   --destructive: oklch(0.55 0.25 27); /* Red */
   --border: oklch(0 0 0); /* Black borders */
   --input: oklch(1 0 0);
-  --ring: oklch(0 0 0); /* Black ring */
-  --chart-1: oklch(0.45 0.22 264);
-  --chart-2: oklch(0.85 0.15 85);
-  --chart-3: oklch(0.55 0.25 27);
-  --chart-4: oklch(0.6 0.2 140);
-  --chart-5: oklch(0.5 0.2 30);
+  --ring: oklch(0.45 0.22 264); /* Blue ring for focus states */
+  --chart-1: oklch(0.45 0.22 264); /* Blue */
+  --chart-2: oklch(0.55 0.22 264); /* Lighter blue */
+  --chart-3: oklch(0.55 0.25 27); /* Red */
+  --chart-4: oklch(0.6 0.2 140); /* Green */
+  --chart-5: oklch(0.35 0.22 264); /* Darker blue */
   --sidebar: oklch(1 0 0); /* White sidebar */
   --sidebar-foreground: oklch(0 0 0);
   --sidebar-primary: oklch(0 0 0);

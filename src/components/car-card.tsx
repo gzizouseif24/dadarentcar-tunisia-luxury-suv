@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Calendar, X, Settings, Users } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface CarCardProps {
   id: string;
@@ -41,9 +42,41 @@ export const CarCard = ({
   };
 
   return (
-    <>
-      <div className="border border-gray-200 bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        {/* Image Container - Clickable to detail page */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -8 }}
+      className="border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden"
+    >
+      {/* Image Container - Clickable to detail page */}
+        <Link href={`/vehicles/${id}`} className="block">
+          <Image
+            src={image}
+            alt={`${brand} ${name}`}
+            width={800}
+            height={600}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            quality={80}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Discount Badge - Small banner */}
+          {badge && (
+            <div className="absolute top-3 right-3 bg-red-500 px-2 py-1 shadow-md">
+              <span className="text-[10px] font-bold uppercase tracking-wide text-white">
+                {badge}
+              </span>
+            </div>
+          )}
+        </div>
+      </Link>
+
+      {/* Content - Compact with smaller text */}
+      <div className="p-3 space-y-1.5">
+        {/* Category & Title Combined - Clickable */}
+>>>>>>> 4239fc180f0e08a3e77c2a8c920d23dda45e08fa
         <Link href={`/vehicles/${id}`} className="block">
           <div className="relative overflow-hidden aspect-[4/3]">
             <Image
@@ -203,6 +236,6 @@ export const CarCard = ({
           </div>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
