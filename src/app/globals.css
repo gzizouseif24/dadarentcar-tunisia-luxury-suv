@@ -165,6 +165,74 @@ rmance Optimizations */
   }
 }
 
+/* Brand Carousel - Mobile-First CSS Animations */
+@keyframes brand-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-scroll-container {
+  width: 100%;
+}
+
+.brand-scroll-track {
+  display: flex;
+  gap: 3rem; /* 48px - smaller gap on mobile */
+  align-items: center;
+  padding: 1rem 0; /* py-4 */
+  animation: brand-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+/* Desktop: larger gaps and slower speed */
+@media (min-width: 768px) {
+  .brand-scroll-track {
+    gap: 5rem; /* 80px - larger gap on desktop */
+    padding: 2rem 0; /* py-8 */
+    animation-duration: 40s;
+  }
+}
+
+/* Pause on hover - desktop only for better mobile UX */
+@media (hover: hover) {
+  .brand-scroll-container:hover .brand-scroll-track {
+    animation-play-state: paused;
+  }
+}
+
+.brand-logo-item {
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-logo-wrapper {
+  position: relative;
+  width: 5rem; /* 80px on mobile */
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .brand-logo-wrapper {
+    width: 10rem; /* 160px on desktop */
+    height: 10rem;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .brand-scroll-track {
+    animation: none;
+  }
+}
+
 /* Neubrutalist Utilities */
 .brutalist-shadow {
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);

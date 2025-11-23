@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 
 const brands = [
   { 
@@ -117,80 +115,54 @@ const brands = [
 ];
 
 export const BrandFilter = () => {
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Duplicate brands multiple times for truly infinite scroll
-  const duplicatedBrands = [...brands, ...brands, ...brands, ...brands];
+  // Mobile: 2x duplication, Desktop: 4x duplication
+  const duplicatedBrands = [...brands, ...brands];
 
   return (
-    <section className="bg-gradient-to-b from-white via-[#00B8D4]/5 to-white py-8 relative overflow-hidden">
-
-      
+    <section className="bg-gradient-to-b from-white via-[#00B8D4]/5 to-white py-4 md:py-8 relative overflow-hidden">
       {/* Full Width Carousel */}
       <div className="relative w-full">
-        {/* Gradient Overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
-        
-        {/* Scrolling Container */}
+        {/* Gradient Overlays - smaller on mobile */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+
+        {/* Scrolling Container - Pure CSS Animation */}
         <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-20 items-center py-8"
-            animate={{
-              x: isPaused ? undefined : ["0%", "-50%"],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {duplicatedBrands.map((brand, index) => (
-              <Link
-                key={`${brand.slug}-${index}`}
-                href={`/vehicles?brand=${brand.slug}`}
-                className="flex-shrink-0 group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="relative w-40 h-40 flex items-center justify-center transition-all duration-300"
+          <div className="brand-scroll-container hover:pause-animation">
+            <div className="brand-scroll-track">
+              {duplicatedBrands.map((brand, index) => (
+                <Link
+                  key={`${brand.slug}-${index}`}
+                  href={`/vehicles?brand=${brand.slug}`}
+                  className="brand-logo-item group"
                 >
-                  {brand.hasLogo ? (
-                    <div className="w-full h-full flex items-center justify-center p-4">
-                      <Image
-                        src={brand.logo!}
-                        alt={brand.name}
-                        width={brand.slug === "tesla" ? 140 : 160}
-                        height={brand.slug === "tesla" ? 140 : 160}
-                        className="object-contain filter drop-shadow-lg"
-                        style={{ 
-                          maxWidth: brand.slug === "tesla" ? "140px" : "160px",
-                          maxHeight: brand.slug === "tesla" ? "140px" : "160px"
-                        }}
-                        unoptimized
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-36 h-36 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-200 flex items-center justify-center">
-                      <span className="text-blue-600 font-black text-2xl">
-                        {brand.name.substring(0, 2).toUpperCase()}
-                      </span>
-                    </div>
-                  )}
-                </motion.div>
-              </Link>
-            ))}
-          </motion.div>
+                  <div className="brand-logo-wrapper">
+                    {brand.hasLogo ? (
+                      <div className="w-full h-full flex items-center justify-center p-2 md:p-4">
+                        <Image
+                          src={brand.logo!}
+                          alt={brand.name}
+                          width={80}
+                          height={80}
+                          className="object-contain filter drop-shadow-lg w-16 h-16 md:w-32 md:h-32 transition-transform duration-200 group-hover:scale-110"
+                          loading="lazy"
+                          unoptimized
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-20 h-20 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-200 flex items-center justify-center">
+                        <span className="text-blue-600 font-black text-lg md:text-2xl">
+                          {brand.name.substring(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-
     </section>
   );
 };
