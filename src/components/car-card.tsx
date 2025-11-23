@@ -48,7 +48,7 @@ export const CarCard = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
-        className="group border border-gray-200 bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-200 will-change-transform hover:-translate-y-2"
+        className="group border border-gray-200 bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl active:shadow-2xl transition-shadow duration-200 will-change-transform hover:-translate-y-2 active:scale-[0.98] md:active:scale-100"
       >
         {/* Image Container - Clickable to detail page */}
         <Link href={`/vehicles/${id}`} className="block">
@@ -60,7 +60,7 @@ export const CarCard = ({
               height={600}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               quality={80}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-active:scale-105"
             />
 
             {/* Discount Badge - Small banner */}
@@ -99,7 +99,7 @@ export const CarCard = ({
                   });
                 }
               }}
-              className="flex-shrink-0 p-1 hover:opacity-70 transition-opacity duration-150"
+              className="flex-shrink-0 p-1 hover:opacity-70 active:opacity-70 active:scale-90 transition-all duration-150"
               aria-label="Partager"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -135,13 +135,13 @@ export const CarCard = ({
               <Link
                 href={`/booking?car=${id}`}
                 prefetch={true}
-                className="bg-red-500 text-white hover:bg-red-600 py-2 font-bold uppercase text-[10px] text-center transition-colors duration-150"
+                className="bg-red-500 text-white hover:bg-red-600 active:bg-red-700 py-2 font-bold uppercase text-[10px] text-center transition-all duration-150 active:scale-95 md:active:scale-100"
               >
                 Réserver
               </Link>
               <Link
                 href={`/vehicles/${id}#availability`}
-                className="bg-[#0066FF] text-white hover:bg-blue-600 py-2 font-bold uppercase text-[10px] text-center transition-colors duration-150 flex items-center justify-center gap-1"
+                className="bg-[#0066FF] text-white hover:bg-blue-600 active:bg-blue-700 py-2 font-bold uppercase text-[10px] text-center transition-all duration-150 flex items-center justify-center gap-1 active:scale-95 md:active:scale-100"
               >
                 <Calendar className="w-3 h-3" />
                 Disponibilité
@@ -152,19 +152,19 @@ export const CarCard = ({
             <div className="grid grid-cols-3 gap-1.5">
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 active:bg-gray-500 py-2 font-bold uppercase text-[9px] text-center transition-all duration-150 active:scale-95 md:active:scale-100"
               >
                 Annulation
               </button>
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 active:bg-gray-500 py-2 font-bold uppercase text-[9px] text-center transition-all duration-150 active:scale-95 md:active:scale-100"
               >
                 Prolongation
               </button>
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 active:bg-gray-500 py-2 font-bold uppercase text-[9px] text-center transition-all duration-150 active:scale-95 md:active:scale-100"
               >
                 Changement
               </button>
@@ -180,7 +180,7 @@ export const CarCard = ({
             {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-black hover:text-[#0066FF] transition-colors duration-150"
+              className="absolute top-4 right-4 text-black hover:text-[#0066FF] active:text-[#0066FF] transition-all duration-150 active:scale-90"
             >
               <X className="w-6 h-6" />
             </button>
@@ -202,7 +202,7 @@ export const CarCard = ({
               <Link
                 href="/vehicles"
                 onClick={() => setShowModal(false)}
-                className="block bg-[#0066FF] text-white hover:bg-blue-700 py-3 px-6 font-black uppercase text-sm transition-colors duration-150 rounded-lg"
+                className="block bg-[#0066FF] text-white hover:bg-blue-700 active:bg-blue-800 py-3 px-6 font-black uppercase text-sm transition-all duration-150 rounded-lg active:scale-95"
               >
                 Voir les Véhicules
               </Link>

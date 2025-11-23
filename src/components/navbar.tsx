@@ -53,36 +53,36 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               ACCUEIL
             </Link>
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 onMouseEnter={() => setIsDropdownOpen(true)}
-                className="flex items-center gap-1 text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide"
+                className="flex items-center gap-1 text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide"
               >
                 VÉHICULES
                 <ChevronDown className="w-4 h-4" />
               </button>
-              <NavbarDropdown 
-                isOpen={isDropdownOpen} 
-                onClose={() => setIsDropdownOpen(false)} 
+              <NavbarDropdown
+                isOpen={isDropdownOpen}
+                onClose={() => setIsDropdownOpen(false)}
               />
             </div>
-            <Link href="/special-offers" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/special-offers" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               OFFRES SPÉCIALES
             </Link>
-            <Link href="/locations" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/locations" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               LOCATIONS
             </Link>
-            <Link href="/blogs" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/blogs" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               BLOGS
             </Link>
-            <Link href="/contact" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/contact" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               CONTACT
             </Link>
-            <Link href="/#faqs" className="text-black hover:text-[#0066FF] transition-colors font-bold uppercase text-sm tracking-wide">
+            <Link href="/#faqs" className="text-black hover:text-[#0066FF] active:text-[#0066FF] transition-colors duration-150 font-bold uppercase text-sm tracking-wide">
               FAQS
             </Link>
           </div>
@@ -91,7 +91,7 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <a
               href={`tel:${siteConfig.contact.phoneRaw}`}
-              className={`flex items-center gap-2 bg-[#0066FF] text-white font-bold uppercase text-sm hover:bg-blue-600 transition-all duration-300 rounded-lg ${isScrolled ? 'px-4 py-2' : 'px-6 py-3'}`}
+              className={`flex items-center gap-2 bg-[#0066FF] text-white font-bold uppercase text-sm hover:bg-blue-600 active:bg-blue-700 transition-all duration-150 rounded-lg active:scale-95 md:active:scale-100 ${isScrolled ? 'px-4 py-2' : 'px-6 py-3'}`}
             >
               <Phone className={`transition-all duration-300 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} />
               APPELEZ
@@ -101,7 +101,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-black p-2 hover:bg-gray-100 transition-colors"
+            className="md:hidden text-black p-2 hover:bg-gray-100 active:bg-gray-200 transition-colors duration-150 active:scale-90"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -112,21 +112,21 @@ export const Navbar = () => {
           <div className="md:hidden py-4 space-y-2 border-t border-gray-200">
             <Link
               href="/"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               ACCUEIL
             </Link>
-            
+
             {/* Mobile Véhicules Accordion */}
             <div>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="w-full flex items-center justify-between text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+                className="w-full flex items-center justify-between text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               >
                 VÉHICULES
-                <ChevronDown 
-                  className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} 
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
                 />
               </button>
               {isDropdownOpen && (
@@ -135,7 +135,7 @@ export const Navbar = () => {
                     <Link
                       key={category.id}
                       href={`/vehicles/${category.slug}`}
-                      className="block text-[#0066FF] hover:bg-blue-100 transition-colors py-2 px-8 font-semibold text-sm"
+                      className="block text-[#0066FF] hover:bg-blue-100 active:bg-blue-200 transition-colors duration-150 py-2 px-8 font-semibold text-sm"
                       onClick={() => {
                         setIsMenuOpen(false);
                         setIsDropdownOpen(false);
@@ -150,42 +150,42 @@ export const Navbar = () => {
 
             <Link
               href="/special-offers"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               OFFRES SPÉCIALES
             </Link>
             <Link
               href="/locations"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               LOCATIONS
             </Link>
             <Link
               href="/blogs"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               BLOGS
             </Link>
             <Link
               href="/contact"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               CONTACT
             </Link>
             <Link
               href="/#faqs"
-              className="block text-black hover:bg-blue-50 transition-colors py-3 px-4 font-bold uppercase text-sm"
+              className="block text-black hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150 py-3 px-4 font-bold uppercase text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQS
             </Link>
             <a
               href="tel:+21612345678"
-              className="flex items-center gap-2 bg-[#0066FF] text-white px-6 py-4 font-bold uppercase text-sm w-full justify-center hover:bg-blue-600 transition-colors mt-4 rounded-lg"
+              className="flex items-center gap-2 bg-[#0066FF] text-white px-6 py-4 font-bold uppercase text-sm w-full justify-center hover:bg-blue-600 active:bg-blue-700 transition-all duration-150 mt-4 rounded-lg active:scale-95"
             >
               <Phone className="w-5 h-5" />
               APPELEZ

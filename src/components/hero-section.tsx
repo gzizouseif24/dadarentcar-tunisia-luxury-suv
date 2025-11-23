@@ -133,7 +133,7 @@ export const HeroSection = () => {
                   <div className="pt-4">
                     <Link
                       href="/vehicles"
-                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-white text-white hover:text-[#0066FF] border-4 border-white px-8 py-4 font-black uppercase text-sm tracking-wide transition-colors rounded-lg"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0066FF] hover:bg-white active:bg-gray-100 text-white hover:text-[#0066FF] active:text-[#0066FF] border-4 border-white px-8 py-4 font-black uppercase text-sm tracking-wide transition-all duration-150 rounded-lg active:scale-95 md:active:scale-100"
                     >
                       VOIR NOS VÉHICULES
                       <ArrowRight className="w-5 h-5" />
@@ -157,10 +157,10 @@ export const HeroSection = () => {
                   setTimeout(() => setIsTransitioning(false), 700);
                 }
               }}
-              className={`h-1.5 rounded-full transition-all ${
-                index === currentSlide 
-                  ? 'w-12 bg-[#0066FF]' 
-                  : 'w-8 bg-white/50 hover:bg-white/70'
+              className={`h-1.5 rounded-full transition-all duration-150 ${
+                index === currentSlide
+                  ? 'w-12 bg-[#0066FF]'
+                  : 'w-8 bg-white/50 hover:bg-white/70 active:bg-white/90'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -171,14 +171,14 @@ export const HeroSection = () => {
         <div className="absolute bottom-8 right-8 z-30 flex gap-2">
           <button
             onClick={prevSlide}
-            className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 transition-all border border-white/20"
+            className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 active:bg-white/30 transition-all duration-150 border border-white/20 active:scale-90 md:active:scale-100"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 transition-all border border-white/20"
+            className="bg-white/10 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/20 active:bg-white/30 transition-all duration-150 border border-white/20 active:scale-90 md:active:scale-100"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
