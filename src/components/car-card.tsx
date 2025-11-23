@@ -48,8 +48,7 @@ export const CarCard = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
-        whileHover={{ y: -8 }}
-        className="border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden"
+        className="group border border-gray-200 bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-200 will-change-transform hover:-translate-y-2"
       >
         {/* Image Container - Clickable to detail page */}
         <Link href={`/vehicles/${id}`} className="block">
@@ -61,7 +60,7 @@ export const CarCard = ({
               height={600}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               quality={80}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
 
             {/* Discount Badge - Small banner */}
@@ -100,7 +99,7 @@ export const CarCard = ({
                   });
                 }
               }}
-              className="flex-shrink-0 p-1 hover:opacity-70 transition-all"
+              className="flex-shrink-0 p-1 hover:opacity-70 transition-opacity duration-150"
               aria-label="Partager"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -136,13 +135,13 @@ export const CarCard = ({
               <Link
                 href={`/booking?car=${id}`}
                 prefetch={true}
-                className="bg-red-500 text-white hover:bg-red-600 py-2 font-bold uppercase text-[10px] text-center transition-colors"
+                className="bg-red-500 text-white hover:bg-red-600 py-2 font-bold uppercase text-[10px] text-center transition-colors duration-150"
               >
                 Réserver
               </Link>
               <Link
                 href={`/vehicles/${id}#availability`}
-                className="bg-[#0066FF] text-white hover:bg-blue-600 py-2 font-bold uppercase text-[10px] text-center transition-colors flex items-center justify-center gap-1"
+                className="bg-[#0066FF] text-white hover:bg-blue-600 py-2 font-bold uppercase text-[10px] text-center transition-colors duration-150 flex items-center justify-center gap-1"
               >
                 <Calendar className="w-3 h-3" />
                 Disponibilité
@@ -153,19 +152,19 @@ export const CarCard = ({
             <div className="grid grid-cols-3 gap-1.5">
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
               >
                 Annulation
               </button>
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
               >
                 Prolongation
               </button>
               <button
                 onClick={handleRestrictedAction}
-                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors"
+                className="bg-[#d3d2ce] text-black hover:bg-gray-400 py-2 font-bold uppercase text-[9px] text-center transition-colors duration-150"
               >
                 Changement
               </button>
@@ -181,7 +180,7 @@ export const CarCard = ({
             {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-black hover:text-[#0066FF] transition-colors"
+              className="absolute top-4 right-4 text-black hover:text-[#0066FF] transition-colors duration-150"
             >
               <X className="w-6 h-6" />
             </button>
@@ -203,7 +202,7 @@ export const CarCard = ({
               <Link
                 href="/vehicles"
                 onClick={() => setShowModal(false)}
-                className="block bg-[#0066FF] text-white hover:bg-blue-700 py-3 px-6 font-black uppercase text-sm transition-colors rounded-lg"
+                className="block bg-[#0066FF] text-white hover:bg-blue-700 py-3 px-6 font-black uppercase text-sm transition-colors duration-150 rounded-lg"
               >
                 Voir les Véhicules
               </Link>
