@@ -243,12 +243,18 @@ export const vehicles: Vehicle[] = [
   },
 ];
 
-export function getCarById(id: string): Car | undefined {
-  return cars.find(car => car.id === id);
+/**
+ * Get a vehicle by ID
+ */
+export function getCarById(id: string): Vehicle | undefined {
+  return vehicles.find(vehicle => vehicle.id === id);
 }
 
-export function getSimilarCars(currentCarId: string, category: string, limit: number = 4): Car[] {
-  return cars
-    .filter(car => car.category === category && car.id !== currentCarId)
+/**
+ * Get similar vehicles based on category
+ */
+export function getSimilarCars(currentCarId: string, category: string, limit: number = 4): Vehicle[] {
+  return vehicles
+    .filter(vehicle => vehicle.category === category && vehicle.id !== currentCarId)
     .slice(0, limit);
 }
