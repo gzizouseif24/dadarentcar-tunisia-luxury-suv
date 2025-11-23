@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const brands = [
   { 
@@ -116,6 +117,8 @@ const brands = [
 ];
 
 export const BrandFilter = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   // Duplicate brands multiple times for truly infinite scroll
   const duplicatedBrands = [...brands, ...brands, ...brands, ...brands];
 
@@ -134,7 +137,7 @@ export const BrandFilter = () => {
           <motion.div
             className="flex gap-20 items-center py-8"
             animate={{
-              x: ["0%", "-50%"],
+              x: isPaused ? undefined : ["0%", "-50%"],
             }}
             transition={{
               x: {
@@ -144,6 +147,8 @@ export const BrandFilter = () => {
                 ease: "linear",
               },
             }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
             {duplicatedBrands.map((brand, index) => (
               <Link

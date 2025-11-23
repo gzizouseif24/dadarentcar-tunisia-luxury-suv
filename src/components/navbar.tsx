@@ -6,10 +6,12 @@ import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { NavbarDropdown } from "./navbar-dropdown";
 import { vehicleCategories } from "@/lib/constants";
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,25 +21,34 @@ export const Navbar = () => {
       }
     };
 
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+    <nav className={`sticky top-0 z-50 bg-white shadow-sm transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="DadaRentCar"
+              alt={siteConfig.name}
               width={220}
               height={80}
-              className="h-16 w-auto object-contain"
+              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12' : 'h-16'}`}
               priority
             />
-            <span className="text-2xl">🇹🇳</span>
+            <span className={`transition-all duration-300 ${isScrolled ? 'text-xl' : 'text-2xl'}`}>🇹🇳</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -79,10 +90,10 @@ export const Navbar = () => {
           {/* Call Now Button */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+21612345678"
-              className="flex items-center gap-2 bg-[#0066FF] text-white px-6 py-3 font-bold uppercase text-sm hover:bg-blue-600 transition-colors rounded-lg"
+              href={`tel:${siteConfig.contact.phoneRaw}`}
+              className={`flex items-center gap-2 bg-[#0066FF] text-white font-bold uppercase text-sm hover:bg-blue-600 transition-all duration-300 rounded-lg ${isScrolled ? 'px-4 py-2' : 'px-6 py-3'}`}
             >
-              <Phone className="w-5 h-5" />
+              <Phone className={`transition-all duration-300 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} />
               APPELEZ
             </a>
           </div>
